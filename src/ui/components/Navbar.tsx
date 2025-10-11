@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 export const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="bg-black border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
             Events App
