@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import { HomePage } from "../events/pages/HomePage";
-import { AboutUsPage } from "../events/pages/AboutUsPage";
-import { EventsPage } from "../events/pages/EventsPage";
 import { NotFound } from "../ui/components/NotFound";
+import { OwenershipsPage } from "../ownerships/pages/OwnershipsPage";
+import { HomePage } from "../ownerships/pages/HomePage";
+import { AboutUsPage } from "../ownerships/pages/AboutUsPage";
 
 export const AppRouter = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/events" element={<EventsPage />} />
+        <Route path="/OwnershipsPage" element={<OwenershipsPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>

@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { EventsApp } from "./EventsApp";
+import './main.css'
 
 import { BrowserRouter as Router } from "react-router-dom";
 

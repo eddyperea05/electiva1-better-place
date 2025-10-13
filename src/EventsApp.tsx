@@ -4,7 +4,7 @@ import { Navbar } from "./ui/components/Navbar";
 export const EventsApp = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <AppRouter />
     </>
   );
