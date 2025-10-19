@@ -10,7 +10,7 @@ import { useDetailContext } from "../hooks/useDataContext";
 //import de los componentes
 import { AddCommentComponent } from "../components/AddCommentComponent";
 import { CommentsComponent } from "../components/CommentsComponent";
-import { StarsComponent } from "../components/StarsComponent";
+import { StarsComponent } from "../../components/StarsComponent";
 import { CalendarComponent } from "../components/CalendarComponent";
 
 //import react router
