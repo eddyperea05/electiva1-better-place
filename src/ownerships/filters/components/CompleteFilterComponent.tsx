@@ -88,7 +88,7 @@ export const CompleteFilterComponent = () => {
       {/* Tenemos isModalOpen para la vista movil y width que lo traemos del customhook para la
       version de escritorio */}
       {(isModalOpen || width > 768) && (
-        <div className="bg-white fixed md:top-0 overflow-scroll top-0 right-0 bottom-0 left-0 md:sticky md:overflow-auto md:p-3 md:outline-1 md:outline-black">
+        <div className="bg-white fixed overflow-scroll top-0 right-0 bottom-0 left-0 md:static md:overflow-auto md:outline-1 md:outline-black md:rounded-sm md:p-3 ">
           <div className="flex flex-col md:mt-2">
             {/* boton para cerrar el modal en la vista movil */}
             <button
@@ -204,7 +204,7 @@ export const CompleteFilterComponent = () => {
                 </div>
                 {!areOpenFilters.amoutBudget ? <FaAngleDown /> : <FaAngleUp />}
               </button>
-              
+
               {/* ventana para abrir los inputs de la cantidad de precio */}
               {areOpenFilters.amoutBudget && (
                 <div className="my-3 outline p-3">
