@@ -4,7 +4,6 @@ import {
   FaBed,
   FaBath,
   FaCarRear,
-  FaRegStar,
   FaComment,
 } from "react-icons/fa6";
 
@@ -19,7 +18,7 @@ import { useDetailContext } from "../../detailProperty/hooks/useDataContext";
 
 //import de los tipos
 import type { property } from "./types/ownershipsPropertiesTypes";
-
+import { StarsComponent } from "../../components/StarsComponent";
 
 export const CardPropertyComponent = ({ property }: { property: property }) => {
 
@@ -69,13 +68,7 @@ export const CardPropertyComponent = ({ property }: { property: property }) => {
         </div>
       </div>
       <div className="flex justify-between mb-3">
-        <div className="flex">
-          <FaRegStar size={20} className="mr-1" />
-          <FaRegStar size={20} className="mr-1" />
-          <FaRegStar size={20} className="mr-1" />
-          <FaRegStar size={20} className="mr-1" />
-          <FaRegStar size={20} className="mr-1" />
-        </div>
+        <StarsComponent amoutStarts={property.calificacion}/>
         {/* cantidad de comentarios */}
         <div className="flex items-center justify-center">
           <FaComment size={20} className="mr-1" />
