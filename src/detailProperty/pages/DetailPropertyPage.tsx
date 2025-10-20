@@ -113,41 +113,41 @@ export const DetailPropertyPage = () => {
 
       {/* esto es muy machetero y duplica código pero por ahora fue la solución que encontre para
             que sea responsive */}
-      <div className="hidden md:block sticky top-0 self-start md:w-[300px] p-5 mt-16 outline-1 outline-black rounded-sm">
+      <div className="md:block bg-black hidden sticky top-0 self-start md:w-[300px] p-5 mt-16 mr-5 rounded-sm">
         <div className="mb-5">
-          <h3 className="capitalize outline-1 outline-black inline-block py-2 px-3 rounded-full font-semibold text-[1rem] ">
+          <h3 className="capitalize outline-1 outline-[#2A1EFA] inline-block py-2 px-3 rounded-full font-semibold text-white text-[1rem] ">
             {data.tipoPropiedad}
           </h3>
         </div>
         {/* nombre del arrendador */}
-        <h2 className="capitalize font-semibold mb-3">{`propietario: ${data.nombreArrendador}`}</h2>
+        <h2 className="text-white capitalize font-semibold mb-3">{`propietario: ${data.nombreArrendador}`}</h2>
 
         {/* precio de arrendamiento por día */}
-        <h2 className="capitalize font-semibold mb-3">{`arrendar a partir de $ ${new Intl.NumberFormat(
+        <h2 className="text-white capitalize font-semibold mb-3">{`arrendar a partir de $ ${new Intl.NumberFormat(
           "es-CO"
         ).format(data.precio)}`}</h2>
 
         {/* área de la propiedad */}
-        <h4 className="capitalize font-semibold mb-5">{`área de la propiedad ${new Intl.NumberFormat(
+        <h4 className="text-white capitalize font-semibold mb-5">{`área de la propiedad ${new Intl.NumberFormat(
           "es-CO"
         ).format(data.metrosCuadrados)}m²`}</h4>
 
         {/* cantidad de habitaciones, baños y parqueaderos */}
         <div className="flex justify-between items-center mb-5">
-          <div className="flex justify-center items-center text-[#2A1EFA]">
+          <div className="flex justify-center items-center text-white">
             <FaBed className="mr-3" />
             <h3 className="font-bold">{data.habitaciones} hab.</h3>
           </div>
-          <div className="flex justify-center items-center text-[#2A1EFA]">
+          <div className="flex justify-center items-center text-white">
             <FaBath className="mr-3" />
             <h3 className="font-bold">{data.baños} bañ.</h3>
           </div>
-          <div className="flex justify-center items-center text-[#2A1EFA]">
+          <div className="flex justify-center items-center text-white">
             <FaCar className="mr-3" />
             <h3 className="font-bold">{data.parqueaderos} par.</h3>
           </div>
         </div>
-        <button className="capitalize py-2 font-bold w-full bg-[#2A1EFA] hover:bg-[#261DCC] duration-150 text-white rounded-sm cursor-pointer">
+        <button className="capitalize py-2 font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm cursor-pointer">
           arrendar propiedad
         </button>
       </div>
