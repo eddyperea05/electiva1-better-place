@@ -25,7 +25,7 @@ export const AddCommentComponent = ({codeHouse}: {codeHouse: string}) => {
           className="w-full h-40  outline-1 outline-black resize-none p-3 rounded-sm"
           placeholder="Añade un comentario"
         />
-        <button className="capitalize font-bold w-full bg-[#2A1EFA] hover:bg-[#261DCC] duration-150 text-white rounded-sm py-3 mb-10 cursor-pointer">
+        <button className="capitalize font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm py-3 mb-10 cursor-pointer">
           comentar
         </button>
       </div>
