@@ -3,6 +3,7 @@ import { NotFound } from "../ui/components/NotFound";
 import { OwenershipsPage } from "../ownerships/pages/OwnershipsPage";
 import { HomePage } from "../ownerships/pages/HomePage";
 import { AboutUsPage } from "../ownerships/pages/AboutUsPage";
+import { MyLeasesPage } from "../ownerships/pages/MyLeasesPage";
 
 export const AppRouter = () => {
   return (
@@ -10,6 +11,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/OwnershipsPage" element={<OwenershipsPage />} />
+        <Route path="/MyLeasesPage" element={<MyLeasesPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>

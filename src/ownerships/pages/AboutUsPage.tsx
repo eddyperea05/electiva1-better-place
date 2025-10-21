@@ -9,7 +9,15 @@ import {
 } from "lucide-react";
 
 export const AboutUsPage = () => {
+
+
   const [activeValue, setActiveValue] = useState(0);
+
+  interface values {
+    icon: string,
+    title: string, 
+    description: string
+  }
 
   const values = [
     {
