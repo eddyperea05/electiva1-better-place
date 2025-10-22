@@ -2,6 +2,7 @@ import { useState } from "react";
 
 //import iconos
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import { useDataPropertiesContext } from "../hooks/useDataPropertiesContext";
 
 //Array con los filtros rápidos
 const fastFilters = [
@@ -15,6 +16,9 @@ const fastFilters = [
 
 export const FastFilterComponent = () => {
 
+  //se importaron los estados del contexto de PropertiesContext
+  const { setFastFilter } = useDataPropertiesContext();
+
   //estado para el abrir o cerrar la ventana de filtros
   const [isOpenList, setIsOpenList] = useState<boolean>(false);
 
@@ -23,8 +27,16 @@ export const FastFilterComponent = () => {
     isOpenList ? setIsOpenList(false) : setIsOpenList(true);
   };
 
+  //Función para enviar el tipo de filtro al contexto de PropertiesContext
+  const handleSelectFilter = (e: any) => {
+    const filter = e.target.textContent;
+    setFastFilter(filter);
+    setIsOpenList(false);
+  }
+
   return (
     <>
+      {/* botón para abrir la lista de filtros rápidos */}
       <button
         onClick={handleList}
         className="flex justify-between items-center outline-1 rounded-md outline-black py-3 px-4 w-full mr-3 md:mr-0 md:mb-3"
@@ -41,7 +53,7 @@ export const FastFilterComponent = () => {
             {fastFilters.map((filter, index) => (
               <li
                 key={index}
-                onClick={handleList}
+                onClick={handleSelectFilter}
                 className="capitalize cursor-pointer my-6 border-b-1 border-black text-xl pb-2"
               >
                 {filter}

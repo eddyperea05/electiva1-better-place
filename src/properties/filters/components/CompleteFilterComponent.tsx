@@ -20,6 +20,7 @@ import {
 } from "react-icons/fa6";
 
 import { PiFarmBold } from "react-icons/pi";
+import { FilterInpuComponent } from "./CompleteFiltersComponents/FilterInpuComponent";
 
 //array para usarlo en la iteración cuando se habra el filtro de propiedades
 const typeOfProperty = [
@@ -37,6 +38,8 @@ const typeOfStuff = [
 ];
 
 export const CompleteFilterComponent = () => {
+
+  //custom hook para saber el tamaño de la ventana
   const { width } = useWindowSize();
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -104,16 +107,7 @@ export const CompleteFilterComponent = () => {
             {/* fitrar por tipo */}
             <div className="mx-5 md:mx-0">
               {/* input para buscar por código */}
-              <div className="display flex flex-col mb-4">
-                <input
-                  className="outline-1 outline-black px-2 py-3 mb-3"
-                  type="text"
-                  placeholder="Buscar por código..."
-                />
-                <button className="bg-blue-700 text-white py-3 font-bold md:hover:bg-blue-900 md:cursor-pointer md:duration-150">
-                  Buscar
-                </button>
-              </div>
+              <FilterInpuComponent/>
 
               {/* boton para buscar por tipo de propiedad */}
               <button
@@ -171,19 +165,19 @@ export const CompleteFilterComponent = () => {
                           <h3 className="capitalize">{stuff}</h3>
                         </div>
                         <div className="flex justify-between">
-                          <button className="outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
                             1
                           </button>
-                          <button className="outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
                             2
                           </button>
-                          <button className="outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
                             3
                           </button>
-                          <button className="outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
                             4
                           </button>
-                          <button className="outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
                             5+
                           </button>
                         </div>
