@@ -14,162 +14,15 @@ import {
   Clock,
 } from "lucide-react";
 
+import { formatDate } from "../../utils/formatDate";
+
+import propiedades from "../../mocks/propiedades.json";
+
 export const MyLeasesPage = () => {
   const [selectedProperty, setSelectedProperty] = useState();
   const [activeTab, setActiveTab] = useState("todas"); // 'todas', 'alquiladas', 'reservadas'
 
-  const propiedades = [
-    {
-      nombreCasa: "Casa de Mikey",
-      tipoPropiedad: "oficina",
-      codigoCasa: "O853442",
-      img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-      precio: 2500000,
-      calificacion: 4.5,
-      metrosCuadrados: 120,
-      habitaciones: 3,
-      baños: 2,
-      parqueaderos: 2,
-      cantidadComentarios: 45,
-      ubicacion: "Cra 43A #14-45, El Poblado, Medellín",
-      descripcion:
-        "Moderna oficina en el corazón de El Poblado, perfecta para equipos creativos. Espacios amplios y luminosos con vista panorámica.",
-      amenidades: [
-        "WiFi de alta velocidad",
-        "Aire acondicionado",
-        "Seguridad 24/7",
-        "Parqueadero visitantes",
-      ],
-      arrendatario: {
-        nombre: "María González Pérez",
-        email: "maria.gonzalez@email.com",
-        telefono: "+57 300 123 4567",
-      },
-      contrato: {
-        fechaInicio: "2024-10-01",
-        fechaFin: "2024-10-15",
-        duracion: "15 días",
-        estadoPago: "al día",
-      },
-    },
-    {
-      nombreCasa: "Apartamento Vista Hermosa",
-      tipoPropiedad: "apartamento",
-      codigoCasa: "A123456",
-      img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
-      precio: 1800000,
-      calificacion: 4.8,
-      metrosCuadrados: 85,
-      habitaciones: 2,
-      baños: 2,
-      parqueaderos: 1,
-      cantidadComentarios: 67,
-      ubicacion: "Calle 10 Sur #48-56, Envigado",
-      descripcion:
-        "Acogedor apartamento con excelente iluminación natural. Zona tranquila cerca de centros comerciales y transporte público.",
-      amenidades: ["Gimnasio", "Piscina", "Zona BBQ", "Parque infantil"],
-      arrendatario: {
-        nombre: "Carlos Ramírez Torres",
-        email: "carlos.ramirez@email.com",
-        telefono: "+57 301 987 6543",
-      },
-      contrato: {
-        fechaInicio: "2024-10-10",
-        fechaFin: "2024-10-17",
-        duracion: "7 días",
-        estadoPago: "al día",
-      },
-    },
-    {
-      nombreCasa: "Casa Campestre Los Pinos",
-      tipoPropiedad: "casa",
-      codigoCasa: "C789012",
-      img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
-      precio: 3200000,
-      calificacion: 4.9,
-      metrosCuadrados: 200,
-      habitaciones: 4,
-      baños: 3,
-      parqueaderos: 3,
-      cantidadComentarios: 89,
-      ubicacion: "Vereda El Escobero, Envigado",
-      descripcion:
-        "Hermosa casa campestre con amplio jardín y zona verde. Perfecta para familias que buscan tranquilidad y naturaleza.",
-      amenidades: [
-        "Jardín privado",
-        "Chimenea",
-        "Zona BBQ",
-        "Vista panorámica",
-      ],
-      arrendatario: {
-        nombre: "Andrea Martínez Silva",
-        email: "andrea.martinez@email.com",
-        telefono: "+57 302 456 7890",
-      },
-      contrato: {
-        fechaInicio: "2024-10-05",
-        fechaFin: "2024-10-25",
-        duracion: "20 días",
-        estadoPago: "pendiente",
-      },
-    },
-    {
-      nombreCasa: "Loft Moderno Laureles",
-      tipoPropiedad: "loft",
-      codigoCasa: "L345678",
-      img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
-      precio: 2100000,
-      calificacion: 4.6,
-      metrosCuadrados: 95,
-      habitaciones: 1,
-      baños: 1,
-      parqueaderos: 1,
-      cantidadComentarios: 34,
-      ubicacion: "Cra 70 #45-23, Laureles, Medellín",
-      descripcion:
-        "Loft de diseño contemporáneo con acabados de lujo. Ideal para profesionales o parejas jóvenes que valoran el estilo.",
-      amenidades: ["WiFi", "Aire acondicionado", "Cocina equipada", "Gimnasio"],
-      arrendatario: {
-        nombre: "Roberto Sánchez López",
-        email: "roberto.sanchez@email.com",
-        telefono: "+57 303 234 5678",
-      },
-      contrato: {
-        fechaInicio: "2024-10-12",
-        fechaFin: "2024-10-19",
-        duracion: "7 días",
-        estadoPago: "al día",
-      },
-    },
-    {
-      nombreCasa: "Penthouse Premium",
-      tipoPropiedad: "penthouse",
-      codigoCasa: "P901234",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-      precio: 4500000,
-      calificacion: 5.0,
-      metrosCuadrados: 180,
-      habitaciones: 3,
-      baños: 3,
-      parqueaderos: 2,
-      cantidadComentarios: 102,
-      ubicacion: "Calle 7 Sur #42-70, El Poblado, Medellín",
-      descripcion:
-        "Exclusivo penthouse con terraza privada y jacuzzi. Vistas espectaculares de la ciudad, lujo y confort en cada detalle.",
-      amenidades: ["Jacuzzi", "Terraza privada", "Smart Home", "Conserjería"],
-      arrendatario: {
-        nombre: "Laura Gutiérrez Mendoza",
-        email: "laura.gutierrez@email.com",
-        telefono: "+57 304 876 5432",
-      },
-      contrato: {
-        fechaInicio: "2024-10-08",
-        fechaFin: "2024-11-08",
-        duracion: "30 días",
-        estadoPago: "al día",
-      },
-    },
-  ];
+  //const propiedades =
 
   const sortedProperties = [...propiedades].sort((a, b) => {
     return new Date(b.contrato.fechaInicio) - new Date(a.contrato.fechaInicio);
@@ -181,15 +34,6 @@ export const MyLeasesPage = () => {
       currency: "COP",
       minimumFractionDigits: 0,
     }).format(price);
-  };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("es-CO", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
   };
 
   const getPropertyIcon = (tipo) => {
@@ -386,7 +230,8 @@ export const MyLeasesPage = () => {
                 </div>
               )}
             </div>
-
+            <br />
+            <br />
             {/* Modal Content */}
             <div className="p-8">
               <div className="flex items-start justify-between mb-6">

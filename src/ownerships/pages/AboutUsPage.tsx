@@ -8,16 +8,10 @@ import {
   Award,
 } from "lucide-react";
 
+import team from "../../mocks/team.json";
+
 export const AboutUsPage = () => {
-
-
   const [activeValue, setActiveValue] = useState(0);
-
-  interface values {
-    icon: string,
-    title: string, 
-    description: string
-  }
 
   const values = [
     {
@@ -43,24 +37,6 @@ export const AboutUsPage = () => {
       title: "Ambición Creativa",
       description:
         "Nos impulsa la innovación y la creatividad, buscando constantemente nuevas formas de hacer las cosas mejor.",
-    },
-  ];
-
-  const team = [
-    {
-      name: "Eddy Perea",
-      role: "CEO",
-      gradient: "from-purple-600 to-blue-600",
-    },
-    {
-      name: "Juan Berdugo",
-      role: "CTO",
-      gradient: "from-blue-600 to-violet-600",
-    },
-    {
-      name: "Juan Cañas",
-      role: "CFO",
-      gradient: "from-violet-600 to-purple-600",
     },
   ];
 
@@ -127,13 +103,13 @@ export const AboutUsPage = () => {
                 Nuestra Misión
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                En Better Place, nos dedicamos a transformar la manera en que
+                En Better Place, TEXTO de RELLENO nos dedicamos a transformar la manera en que
                 las personas se conectan, colaboran y crecen juntas. Creemos que
                 cada individuo tiene un potencial único que merece ser
                 descubierto y compartido con el mundo.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Nuestra plataforma fue creada con la visión de eliminar las
+                TEXTO de RELLENO, Nuestra plataforma fue creada con la visión de eliminar las
                 barreras que impiden las conexiones auténticas, proporcionando
                 herramientas y espacios donde las ideas pueden florecer y las
                 comunidades pueden prosperar.
