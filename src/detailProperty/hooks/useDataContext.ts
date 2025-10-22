@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { DetailContext } from "../context/DetailContext";
 
 export const useDetailContext = () => {
-  const context = useContext(DetailContext);
-  if (!context) {
+  const detailContext = useContext(DetailContext);
+  if (!detailContext) {
     throw new Error("useDetailContext debe de ser proporcionado por un DetailProvider");
   }
-  return context;
+  return detailContext;
 };
