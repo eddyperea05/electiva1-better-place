@@ -2,11 +2,11 @@
 import { FaUserCircle, FaCommentSlash } from "react-icons/fa";
 
 //import de comentarios
-import comentarios_casas from "../../json/comentarios_casas.json";
+import comentarios_propiedades from "../../json/comentarios_propiedades.json";
 
 export const CommentsComponent = ({ codeHouse }: { codeHouse: string }) => {
   //guardamos en una variable los comentarios que coincidan con el código de la casa
-  const comments = comentarios_casas.find(
+  const comments = comentarios_propiedades.find(
     (comment) => comment.codigoCasa === codeHouse
   );
 
