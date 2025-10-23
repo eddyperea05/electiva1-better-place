@@ -1,4 +1,4 @@
-import comentarios from "../../json/comentarios_casas.json"
+import comentarios_propíedades from "../../json/comentarios_propiedades.json";
 
 import { FaComment } from "react-icons/fa";
 
@@ -6,7 +6,7 @@ import { FaComment } from "react-icons/fa";
 export const AddCommentComponent = ({codeHouse}: {codeHouse: string}) => {
 
   //guardamos en una variable los comentarios que coincidan con el código de la casa
-  const comments = comentarios.find(
+  const comments = comentarios_propíedades.find(
     (comment) => comment.codigoCasa === codeHouse
   );
 
