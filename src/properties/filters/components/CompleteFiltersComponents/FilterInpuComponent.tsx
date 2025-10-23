@@ -28,13 +28,13 @@ export const FilterInpuComponent = () => {
         <input
           onChange={handleChangeInputFilter}
           name="filterInput"
-          className="outline-1 outline-black px-2 py-3 mb-3"
+          className="outline-1 outline-gray-300 px-2 py-3 mb-3 rounded-sm"
           type="text"
           placeholder="Buscar por código..."
         />
         <button
           onClick={handleOnClickFilterInput}
-          className="bg-blue-700 text-white py-3 font-bold md:hover:bg-blue-900 md:cursor-pointer md:duration-150"
+          className="bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white py-2.5 font-bold md:cursor-pointer rounded-sm"
         >
           Buscar
         </button>

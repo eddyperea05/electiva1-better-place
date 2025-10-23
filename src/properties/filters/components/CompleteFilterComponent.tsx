@@ -38,7 +38,6 @@ const typeOfStuff = [
 ];
 
 export const CompleteFilterComponent = () => {
-
   //custom hook para saber el tamaño de la ventana
   const { width } = useWindowSize();
 
@@ -82,7 +81,7 @@ export const CompleteFilterComponent = () => {
       {width < 768 && (
         <button
           onClick={handleModal}
-          className="py-3 px-4 bg-blue-700 rounded-md"
+          className="py-3 px-4 bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] rounded-md"
         >
           <FaList className="text-white" />
         </button>
@@ -91,7 +90,7 @@ export const CompleteFilterComponent = () => {
       {/* Tenemos isModalOpen para la vista movil y width que lo traemos del customhook para la
       version de escritorio */}
       {(isModalOpen || width > 768) && (
-        <div className="bg-white fixed overflow-scroll top-0 right-0 bottom-0 left-0 md:static md:overflow-auto md:outline-1 md:outline-black md:rounded-sm md:p-3 ">
+        <div className="bg-white fixed overflow-scroll top-0 right-0 bottom-0 left-0 md:static md:overflow-auto md:border md:border-gray-300 md:rounded-sm md:p-3 shadow-lg z-999">
           <div className="flex flex-col md:mt-2">
             {/* boton para cerrar el modal en la vista movil */}
             <button
@@ -107,33 +106,37 @@ export const CompleteFilterComponent = () => {
             {/* fitrar por tipo */}
             <div className="mx-5 md:mx-0">
               {/* input para buscar por código */}
-              <FilterInpuComponent/>
+              <FilterInpuComponent />
 
               {/* boton para buscar por tipo de propiedad */}
               <button
                 onClick={handleChangeAreOpenFilters}
-                className="flex justify-between items-center w-full p-3 outline-1 outline-black"
+                className="flex justify-between items-center w-full p-3 outline-1 outline-gray-300 rounded-sm"
               >
                 <div className="flex items-center gap-2">
-                  <FaBuilding />
-                  <h3 className="capitalize">tipo de propiedad</h3>
+                  <FaBuilding className="text-[#2A1EFA]" />
+                  <h3 className="capitalize text-gray-500">
+                    tipo de propiedad
+                  </h3>
                 </div>
                 {!areOpenFilters.typeProperties ? (
-                  <FaAngleDown />
+                  <FaAngleDown className="text-gray-500" />
                 ) : (
-                  <FaAngleUp />
+                  <FaAngleUp className="text-gray-500" />
                 )}
               </button>
 
               {/* Iteración para mostrar los iconos y el nombre de cada checkbox */}
               {areOpenFilters.typeProperties && (
-                <div className="my-3 outline p-3">
+                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
                   <ul>
                     {typeOfProperty.map(({ property, icon: Icon }, index) => (
                       <li key={index} className="flex justify-between mb-2">
                         <div className="flex justify-center items-center">
-                          <Icon className="mr-2" />
-                          <h3 className="capitalize">{property}</h3>
+                          <Icon className="mr-2 text-[#2A1EFA]" />
+                          <h3 className="capitalize text-gray-500">
+                            {property}
+                          </h3>
                         </div>
                         <input type="checkbox" name={property} id="" />
                       </li>
@@ -145,39 +148,45 @@ export const CompleteFilterComponent = () => {
               {/* boton para buscar por tipo de cantidad de cuartos, baños y parqueaderos */}
               <button
                 onClick={handleChangeAreOpenFilters}
-                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-black"
+                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-gray-300 rounded-sm"
               >
                 <div className="flex items-center gap-2">
-                  <FaChair />
-                  <h3 className="capitalize">cantidad de inmuebles</h3>
+                  <FaChair className="text-[#2A1EFA]" />
+                  <h3 className="capitalize text-gray-500">
+                    cantidad de inmuebles
+                  </h3>
                 </div>
-                {!areOpenFilters.amountStuffs ? <FaAngleDown /> : <FaAngleUp />}
+                {!areOpenFilters.amountStuffs ? (
+                  <FaAngleDown className="text-gray-500" />
+                ) : (
+                  <FaAngleUp className="text-gray-500" />
+                )}
               </button>
 
               {/* Iteración para mostrar los iconos y el nombre de cada inmueble */}
               {areOpenFilters.amountStuffs && (
-                <div className="my-3 outline p-3">
+                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
                   <ul>
                     {typeOfStuff.map(({ stuff, icon: Icon }, index) => (
                       <li key={index} className="mb-3">
                         <div className="flex items-center mb-3">
-                          <Icon className="mr-2" />
-                          <h3 className="capitalize">{stuff}</h3>
+                          <Icon className="mr-2 text-[#2A1EFA]" />
+                          <h3 className="capitalize text-gray-500">{stuff}</h3>
                         </div>
                         <div className="flex justify-between">
-                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
                             1
                           </button>
-                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
                             2
                           </button>
-                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
                             3
                           </button>
-                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
                             4
                           </button>
-                          <button className="cursor-pointer outline-1 outline-black py-2 px-4 rounded-xl">
+                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
                             5+
                           </button>
                         </div>
@@ -190,31 +199,35 @@ export const CompleteFilterComponent = () => {
               {/* boton para buscar por cantidad de presupuesto */}
               <button
                 onClick={handleChangeAreOpenFilters}
-                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-black"
+                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-gray-300 rounded-sm"
               >
                 <div className="flex items-center gap-2">
-                  <FaPiggyBank />
-                  <h3 className="capitalize">cantidad de presupuesto</h3>
+                  <FaPiggyBank className="text-[#2A1EFA]"/>
+                  <h3 className="capitalize text-gray-500">cantidad de presupuesto</h3>
                 </div>
-                {!areOpenFilters.amoutBudget ? <FaAngleDown /> : <FaAngleUp />}
+                {!areOpenFilters.amoutBudget ? (
+                  <FaAngleDown className="text-gray-500" />
+                ) : (
+                  <FaAngleUp className="text-gray-500" />
+                )}
               </button>
 
               {/* ventana para abrir los inputs de la cantidad de precio */}
               {areOpenFilters.amoutBudget && (
-                <div className="my-3 outline p-3">
+                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
                   <div>
                     <input
-                      className="w-full outline-1 outline-black py-2 px-4 mb-3"
+                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
                       type="text"
                       placeholder="Mínimo $"
                     />
                     <input
-                      className="w-full outline-1 outline-black py-2 px-4 mb-3"
+                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
                       type="text"
                       placeholder="Máximo $"
                     />
                   </div>
-                  <button className="w-full bg-blue-700 py-3 text-white font-bold md:hover:bg-blue-900 md:cursor-pointer md:duration-150">
+                  <button className="w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] py-2.5 text-white font-bold md:cursor-pointer rounded-sm">
                     Aplicar
                   </button>
                 </div>
