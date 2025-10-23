@@ -1,5 +1,5 @@
 //Json de las propiedades
-import propertiesJson from "../../json/houses.json";
+import propertiesJson from "../../json/propiedades.json";
 
 import { useEffect, useState } from "react";
 
@@ -29,11 +29,11 @@ export const PropertiesPage = () => {
       <section>
         <Filters />
       </section>
-      <section className="flex flex-col justify-center items-center md:flex-row md:flex-wrap md:gap-10 mx-5">
+      <section className="flex flex-col justify-center items-center md:flex-row md:flex-wrap md:gap-10 mx-5 md:my-6">
         {/* contenedor por cada tarjeta */}
-        {properties.map((house: any) => (
+        {properties.map((property: any) => (
           /* componente de la tarjeta de propiedad */
-          <CardPropertyComponent key={house.codigoCasa} property={house} />
+          <CardPropertyComponent key={property.codigoCasa} property={property} />
         ))}
       </section>
     </div>
