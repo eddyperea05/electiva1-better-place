@@ -13,23 +13,13 @@
     "cantidadComentarios": 45,
     "ubicacion": "Cra 43A #14-45, El Poblado, Medellín",
     "descripcion": "Moderna oficina en el corazón de El Poblado, perfecta para equipos creativos. Espacios amplios y luminosos con vista panorámica.",
-    "amenidades": [
-      "WiFi de alta velocidad",
-      "Aire acondicionado",
-      "Seguridad 24/7",
-      "Parqueadero visitantes"
-    ],
+    "amenidades": ["WiFi de alta velocidad", "Aire acondicionado", "Seguridad 24/7", "Parqueadero visitantes"],
     "arrendatario": {
       "nombre": "María González Pérez",
       "email": "maria.gonzalez@email.com",
       "telefono": "+57 300 123 4567"
     },
-    "contrato": {
-      "fechaInicio": "2024-10-01",
-      "fechaFin": "2024-10-15",
-      "duracion": "15 días",
-      "estadoPago": "al día"
-    }
+    "estado": "arrendada"
   },
   {
     "nombreCasa": "Apartamento Vista Hermosa",
@@ -51,12 +41,7 @@
       "email": "carlos.ramirez@email.com",
       "telefono": "+57 301 987 6543"
     },
-    "contrato": {
-      "fechaInicio": "2024-10-10",
-      "fechaFin": "2024-10-17",
-      "duracion": "7 días",
-      "estadoPago": "al día"
-    }
+    "estado": "arrendada"
   },
   {
     "nombreCasa": "Casa Campestre Los Pinos",
@@ -72,23 +57,13 @@
     "cantidadComentarios": 89,
     "ubicacion": "Vereda El Escobero, Envigado",
     "descripcion": "Hermosa casa campestre con amplio jardín y zona verde. Perfecta para familias que buscan tranquilidad y naturaleza.",
-    "amenidades": [
-      "Jardín privado",
-      "Chimenea",
-      "Zona BBQ",
-      "Vista panorámica"
-    ],
+    "amenidades": ["Jardín privado", "Chimenea", "Zona BBQ", "Vista panorámica"],
     "arrendatario": {
       "nombre": "Andrea Martínez Silva",
       "email": "andrea.martinez@email.com",
       "telefono": "+57 302 456 7890"
     },
-    "contrato": {
-      "fechaInicio": "2024-10-05",
-      "fechaFin": "2024-10-25",
-      "duracion": "20 días",
-      "estadoPago": "pendiente"
-    }
+    "estado": "arrendada"
   },
   {
     "nombreCasa": "Loft Moderno Laureles",
@@ -110,12 +85,7 @@
       "email": "roberto.sanchez@email.com",
       "telefono": "+57 303 234 5678"
     },
-    "contrato": {
-      "fechaInicio": "2024-10-12",
-      "fechaFin": "2024-10-19",
-      "duracion": "7 días",
-      "estadoPago": "al día"
-    }
+    "estado": "arrendada"
   },
   {
     "nombreCasa": "Penthouse Premium",
@@ -137,11 +107,6 @@
       "email": "laura.gutierrez@email.com",
       "telefono": "+57 304 876 5432"
     },
-    "contrato": {
-      "fechaInicio": "2024-10-08",
-      "fechaFin": "2024-11-08",
-      "duracion": "30 días",
-      "estadoPago": "al día"
-    }
+    "estado": "arrendada"
   }
 ]

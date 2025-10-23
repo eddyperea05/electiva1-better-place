@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import { NotFound } from "../ui/components/NotFound";
 import { OwenershipsPage } from "../ownerships/pages/OwnershipsPage";
 import { HomePage } from "../ownerships/pages/HomePage";
-import { AboutUsPage } from "../ownerships/pages/AboutUsPage";
-import { MyLeasesPage } from "../ownerships/pages/MyLeasesPage";
+import { AboutUsPage } from "../aboutUS/page/AboutUsPage";
+import { MyLeasesPage } from "../myLeases/pages/MyLeasesPage";
 
 export const AppRouter = () => {
   return (
