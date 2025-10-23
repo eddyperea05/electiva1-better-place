@@ -9,8 +9,8 @@ import { useDetailContext } from "../../detailProperty/hooks/useDataContext";
 
 //import de los tipos
 
-import { getPropertyIcon } from "../utils/getPropertyIcon";
-import { formatPrice } from "../utils/formatPrice";
+import { getPropertyIcon } from "../../utils/getPropertyIcon";
+import { formatPrice } from "../../utils/formatPrice";
 import type { PropiedadInterface } from "../types/propertyType";
 
 export const CardPropertyComponent = ({
