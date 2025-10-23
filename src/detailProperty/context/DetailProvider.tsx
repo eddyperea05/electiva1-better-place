@@ -1,9 +1,13 @@
 import { useState, type ReactNode } from "react";
 import { DetailContext } from "./DetailContext";
-import type { property } from "../../properties/components/types/ownershipsPropertiesTypes";
+
+//import tipos
+import type { PropiedadInterface } from "../../properties/types/propertyType";
 
 export const DetailProvider = ({ children }: { children: ReactNode }) => {
-  const [data, setData] = useState<property>();
+
+  //estado de los datos de las propiedades
+  const [data, setData] = useState<PropiedadInterface>();
 
   return (
     <DetailContext.Provider value={{ data, setData }}>
