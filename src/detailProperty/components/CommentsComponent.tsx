@@ -1,5 +1,5 @@
 //imports de iconos
-import { FaUserCircle, FaCommentSlash } from "react-icons/fa";
+import { FaCommentSlash } from "react-icons/fa";
 
 //import de comentarios
 import comentarios_propiedades from "../../json/comentarios_propiedades.json";
@@ -19,20 +19,20 @@ export const CommentsComponent = ({ codeHouse }: { codeHouse: string }) => {
           comments?.comentarios.map((comment, index) => (
             <div key={index} className="mb-7">
               <div className="flex justify-between">
-                <div className="flex justify-center items-center">
-                  <FaUserCircle className="mr-3 text-xl" />
-                  <h3 className="font-bold">{comment.usuario}</h3>
+                <div className="flex justify-center items-center mb-6">
+                  <img className="outline outline-[#2A1EFA] p-1 rounded-full mr-3 w-15" src={comment.fotoPerfil}/>
+                  <h3 className="font-bold text-gray-500">{comment.usuario}</h3>
                 </div>
-                <h3 className="font-semibold">{comment.fechaPublicacion}</h3>
+                <h3 className="font-semibold text-gray-500">{comment.fechaPublicacion}</h3>
               </div>
-              <p>{comment.comentario}</p>
+              <p className="text-gray-500">{comment.comentario}</p>
             </div>
           ))
         ) : (
           /* visualización para mostrar que no hay comentarios */
           <div className="flex justify-center items-center mb-10">
-            <FaCommentSlash className="mr-3"/>
-            <h2 className="font-bold">No hay ningun comentario</h2>
+            <FaCommentSlash className="mr-3 text-gray-400"/>
+            <h2 className="font-bold text-gray-400">No hay ningun comentario</h2>
           </div>
         )}
       </div>
