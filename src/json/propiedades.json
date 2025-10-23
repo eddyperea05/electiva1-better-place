@@ -1,0 +1,1190 @@
+[
+  {
+    "nombreCasa": "Casa de Mikey",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "O853442",
+    "img": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    "precio": 2500000,
+    "calificacion": 4.5,
+    "metrosCuadrados": 120,
+    "habitaciones": 3,
+    "baños": 2,
+    "parqueaderos": 2,
+    "cantidadComentarios": 45,
+    "ubicacion": "Cra 43A #14-45, El Poblado, Medellín",
+    "descripcion": "Moderna oficina en el corazón de El Poblado, perfecta para equipos creativos. Espacios amplios y luminosos con vista panorámica.",
+    "amenidades": [
+      "WiFi de alta velocidad",
+      "Aire acondicionado",
+      "Seguridad 24/7",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "María González Pérez",
+      "email": "maria.gonzalez@email.com",
+      "telefono": "+57 300 123 4567"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Apartamento Vista Hermosa",
+    "tipoPropiedad": "apartamento",
+    "codigoCasa": "A123456",
+    "img": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+    "precio": 1800000,
+    "calificacion": 4.8,
+    "metrosCuadrados": 85,
+    "habitaciones": 2,
+    "baños": 2,
+    "parqueaderos": 1,
+    "cantidadComentarios": 67,
+    "ubicacion": "Calle 10 Sur #48-56, Envigado",
+    "descripcion": "Acogedor apartamento con excelente iluminación natural. Zona tranquila cerca de centros comerciales y transporte público.",
+    "amenidades": [
+      "Gimnasio",
+      "Piscina",
+      "Zona BBQ",
+      "Parque infantil"
+    ],
+    "arrendatario": {
+      "nombre": "Carlos Ramírez Torres",
+      "email": "carlos.ramirez@email.com",
+      "telefono": "+57 301 987 6543"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Casa Campestre Los Pinos",
+    "tipoPropiedad": "casa",
+    "codigoCasa": "C789012",
+    "img": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+    "precio": 3200000,
+    "calificacion": 4.9,
+    "metrosCuadrados": 200,
+    "habitaciones": 4,
+    "baños": 3,
+    "parqueaderos": 3,
+    "cantidadComentarios": 89,
+    "ubicacion": "Vereda El Escobero, Envigado",
+    "descripcion": "Hermosa casa campestre con amplio jardín y zona verde. Perfecta para familias que buscan tranquilidad y naturaleza.",
+    "amenidades": [
+      "Jardín privado",
+      "Chimenea",
+      "Zona BBQ",
+      "Vista panorámica"
+    ],
+    "arrendatario": {
+      "nombre": "Andrea Martínez Silva",
+      "email": "andrea.martinez@email.com",
+      "telefono": "+57 302 456 7890"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Loft Moderno Laureles",
+    "tipoPropiedad": "loft",
+    "codigoCasa": "L345678",
+    "img": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
+    "precio": 2100000,
+    "calificacion": 4.6,
+    "metrosCuadrados": 95,
+    "habitaciones": 1,
+    "baños": 1,
+    "parqueaderos": 1,
+    "cantidadComentarios": 34,
+    "ubicacion": "Cra 70 #45-23, Laureles, Medellín",
+    "descripcion": "Loft de diseño contemporáneo con acabados de lujo. Ideal para profesionales o parejas jóvenes que valoran el estilo.",
+    "amenidades": [
+      "WiFi",
+      "Aire acondicionado",
+      "Cocina equipada",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Roberto Sánchez López",
+      "email": "roberto.sanchez@email.com",
+      "telefono": "+57 303 234 5678"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Penthouse Premium",
+    "tipoPropiedad": "penthouse",
+    "codigoCasa": "P901234",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 4500000,
+    "calificacion": 5.0,
+    "metrosCuadrados": 180,
+    "habitaciones": 3,
+    "baños": 3,
+    "parqueaderos": 2,
+    "cantidadComentarios": 102,
+    "ubicacion": "Calle 7 Sur #42-70, El Poblado, Medellín",
+    "descripcion": "Exclusivo penthouse con terraza privada y jacuzzi. Vistas espectaculares de la ciudad, lujo y confort en cada detalle.",
+    "amenidades": [
+      "Jacuzzi",
+      "Terraza privada",
+      "Smart Home",
+      "Conserjería"
+    ],
+    "arrendatario": {
+      "nombre": "Laura Gutiérrez Mendoza",
+      "email": "laura.gutierrez@email.com",
+      "telefono": "+57 304 876 5432"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Oficina Las Palmas 6",
+    "tipoPropiedad": "apartamento",
+    "codigoCasa": "A481548",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2187297,
+    "calificacion": 4.3,
+    "metrosCuadrados": 125,
+    "habitaciones": 1,
+    "baños": 3,
+    "parqueaderos": 1,
+    "cantidadComentarios": 71,
+    "ubicacion": "Calle 14 #56-24, Las Palmas, Medellín",
+    "descripcion": "Hermoso apartamento ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Seguridad 24/7",
+      "Parqueadero visitantes",
+      "Aire acondicionado",
+      "Jardín privado"
+    ],
+    "arrendatario": {
+      "nombre": "Ana López",
+      "email": "contacto0@email.com",
+      "telefono": "+57 375104686"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Loft El Poblado 7",
+    "tipoPropiedad": "apartamento",
+    "codigoCasa": "A356446",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2301586,
+    "calificacion": 4.0,
+    "metrosCuadrados": 94,
+    "habitaciones": 4,
+    "baños": 1,
+    "parqueaderos": 0,
+    "cantidadComentarios": 69,
+    "ubicacion": "Calle 33 #54-44, El Poblado, Medellín",
+    "descripcion": "Hermoso apartamento ubicado en El Poblado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Aire acondicionado",
+      "Piscina",
+      "Parqueadero visitantes",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Juan López",
+      "email": "contacto1@email.com",
+      "telefono": "+57 376111984"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Condominio Bello 8",
+    "tipoPropiedad": "duplex",
+    "codigoCasa": "D447329",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 1577879,
+    "calificacion": 4.3,
+    "metrosCuadrados": 170,
+    "habitaciones": 5,
+    "baños": 3,
+    "parqueaderos": 0,
+    "cantidadComentarios": 47,
+    "ubicacion": "Calle 45 #29-20, Bello, Medellín",
+    "descripcion": "Hermoso duplex ubicado en Bello, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Parqueadero visitantes",
+      "Piscina",
+      "Zona BBQ",
+      "Seguridad 24/7"
+    ],
+    "arrendatario": {
+      "nombre": "Pedro López",
+      "email": "contacto2@email.com",
+      "telefono": "+57 343934169"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Condominio Las Palmas 9",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "O546832",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 1059453,
+    "calificacion": 3.5,
+    "metrosCuadrados": 226,
+    "habitaciones": 1,
+    "baños": 3,
+    "parqueaderos": 1,
+    "cantidadComentarios": 114,
+    "ubicacion": "Calle 8 #1-17, Las Palmas, Medellín",
+    "descripcion": "Hermoso oficina ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Parqueadero visitantes",
+      "Gimnasio",
+      "Piscina",
+      "Pet Friendly"
+    ],
+    "arrendatario": {
+      "nombre": "Diego Torres",
+      "email": "contacto3@email.com",
+      "telefono": "+57 305894525"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Residencia Laureles 10",
+    "tipoPropiedad": "apartamento",
+    "codigoCasa": "A739890",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2681359,
+    "calificacion": 3.5,
+    "metrosCuadrados": 105,
+    "habitaciones": 1,
+    "baños": 4,
+    "parqueaderos": 1,
+    "cantidadComentarios": 31,
+    "ubicacion": "Calle 16 #44-36, Laureles, Medellín",
+    "descripcion": "Hermoso apartamento ubicado en Laureles, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Gimnasio",
+      "Piscina",
+      "Zona BBQ",
+      "Seguridad 24/7"
+    ],
+    "arrendatario": {
+      "nombre": "Lucía Torres",
+      "email": "contacto4@email.com",
+      "telefono": "+57 361854358"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Hogar Las Palmas 11",
+    "tipoPropiedad": "loft",
+    "codigoCasa": "L919191",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 4466883,
+    "calificacion": 4.6,
+    "metrosCuadrados": 250,
+    "habitaciones": 3,
+    "baños": 4,
+    "parqueaderos": 1,
+    "cantidadComentarios": 97,
+    "ubicacion": "Calle 16 #28-55, Las Palmas, Medellín",
+    "descripcion": "Hermoso loft ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Parqueadero visitantes",
+      "Zona BBQ",
+      "Aire acondicionado",
+      "Piscina"
+    ],
+    "arrendatario": {
+      "nombre": "Juan Restrepo",
+      "email": "contacto5@email.com",
+      "telefono": "+57 355801785"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Loft San Lucas 12",
+    "tipoPropiedad": "local comercial",
+    "codigoCasa": "L523916",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2236124,
+    "calificacion": 3.9,
+    "metrosCuadrados": 81,
+    "habitaciones": 5,
+    "baños": 3,
+    "parqueaderos": 2,
+    "cantidadComentarios": 65,
+    "ubicacion": "Calle 3 #73-14, San Lucas, Medellín",
+    "descripcion": "Hermoso local comercial ubicado en San Lucas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Piscina",
+      "WiFi",
+      "Seguridad 24/7",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Camila Gómez",
+      "email": "contacto6@email.com",
+      "telefono": "+57 305069216"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Casa Belén 13",
+    "tipoPropiedad": "loft",
+    "codigoCasa": "L606015",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2355728,
+    "calificacion": 3.9,
+    "metrosCuadrados": 158,
+    "habitaciones": 3,
+    "baños": 4,
+    "parqueaderos": 2,
+    "cantidadComentarios": 77,
+    "ubicacion": "Calle 3 #9-38, Belén, Medellín",
+    "descripcion": "Hermoso loft ubicado en Belén, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Zona BBQ",
+      "Pet Friendly",
+      "Jardín privado",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Camila Ramírez",
+      "email": "contacto7@email.com",
+      "telefono": "+57 386920477"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Condominio Las Palmas 14",
+    "tipoPropiedad": "apartamento",
+    "codigoCasa": "A333817",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2597067,
+    "calificacion": 4.6,
+    "metrosCuadrados": 107,
+    "habitaciones": 4,
+    "baños": 3,
+    "parqueaderos": 1,
+    "cantidadComentarios": 10,
+    "ubicacion": "Calle 13 #2-59, Las Palmas, Medellín",
+    "descripcion": "Hermoso apartamento ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Piscina",
+      "Parqueadero visitantes",
+      "Cocina equipada",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Luis Ramírez",
+      "email": "contacto8@email.com",
+      "telefono": "+57 397957504"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Suite Las Palmas 15",
+    "tipoPropiedad": "bodega",
+    "codigoCasa": "B826322",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2050626,
+    "calificacion": 4.4,
+    "metrosCuadrados": 62,
+    "habitaciones": 2,
+    "baños": 2,
+    "parqueaderos": 3,
+    "cantidadComentarios": 30,
+    "ubicacion": "Calle 30 #18-42, Las Palmas, Medellín",
+    "descripcion": "Hermoso bodega ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Cocina equipada",
+      "Seguridad 24/7",
+      "WiFi",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Ana Torres",
+      "email": "contacto9@email.com",
+      "telefono": "+57 377791443"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Apartamento San Lucas 16",
+    "tipoPropiedad": "studio",
+    "codigoCasa": "S211631",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2101759,
+    "calificacion": 4.0,
+    "metrosCuadrados": 208,
+    "habitaciones": 1,
+    "baños": 1,
+    "parqueaderos": 0,
+    "cantidadComentarios": 100,
+    "ubicacion": "Calle 32 #25-67, San Lucas, Medellín",
+    "descripcion": "Hermoso studio ubicado en San Lucas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Cocina equipada",
+      "Piscina",
+      "Gimnasio",
+      "Pet Friendly"
+    ],
+    "arrendatario": {
+      "nombre": "Diego Restrepo",
+      "email": "contacto10@email.com",
+      "telefono": "+57 379408781"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Estudio San Lucas 17",
+    "tipoPropiedad": "apartamento",
+    "codigoCasa": "A299114",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3370435,
+    "calificacion": 4.1,
+    "metrosCuadrados": 165,
+    "habitaciones": 5,
+    "baños": 1,
+    "parqueaderos": 1,
+    "cantidadComentarios": 28,
+    "ubicacion": "Calle 34 #13-13, San Lucas, Medellín",
+    "descripcion": "Hermoso apartamento ubicado en San Lucas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Zona BBQ",
+      "Gimnasio",
+      "Parqueadero visitantes",
+      "Piscina"
+    ],
+    "arrendatario": {
+      "nombre": "Juan Torres",
+      "email": "contacto11@email.com",
+      "telefono": "+57 389864091"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Condominio Sabaneta 18",
+    "tipoPropiedad": "finca",
+    "codigoCasa": "F660376",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2183065,
+    "calificacion": 3.5,
+    "metrosCuadrados": 68,
+    "habitaciones": 2,
+    "baños": 4,
+    "parqueaderos": 2,
+    "cantidadComentarios": 42,
+    "ubicacion": "Calle 47 #68-53, Sabaneta, Medellín",
+    "descripcion": "Hermoso finca ubicado en Sabaneta, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Jardín privado",
+      "Gimnasio",
+      "Zona BBQ",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Juan Torres",
+      "email": "contacto12@email.com",
+      "telefono": "+57 331936308"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Estudio El Poblado 19",
+    "tipoPropiedad": "casa",
+    "codigoCasa": "C885880",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 1491511,
+    "calificacion": 4.4,
+    "metrosCuadrados": 197,
+    "habitaciones": 1,
+    "baños": 3,
+    "parqueaderos": 0,
+    "cantidadComentarios": 82,
+    "ubicacion": "Calle 18 #16-26, El Poblado, Medellín",
+    "descripcion": "Hermoso casa ubicado en El Poblado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Pet Friendly",
+      "Piscina",
+      "Cocina equipada",
+      "Aire acondicionado"
+    ],
+    "arrendatario": {
+      "nombre": "Juan López",
+      "email": "contacto13@email.com",
+      "telefono": "+57 308085214"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Casa Envigado 20",
+    "tipoPropiedad": "penthouse",
+    "codigoCasa": "P593593",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2479660,
+    "calificacion": 4.3,
+    "metrosCuadrados": 173,
+    "habitaciones": 5,
+    "baños": 3,
+    "parqueaderos": 0,
+    "cantidadComentarios": 20,
+    "ubicacion": "Calle 46 #75-44, Envigado, Medellín",
+    "descripcion": "Hermoso penthouse ubicado en Envigado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Aire acondicionado",
+      "Pet Friendly",
+      "Cocina equipada",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Diego Marín",
+      "email": "contacto14@email.com",
+      "telefono": "+57 381822275"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Loft San Lucas 21",
+    "tipoPropiedad": "local comercial",
+    "codigoCasa": "L920234",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 1771169,
+    "calificacion": 4.6,
+    "metrosCuadrados": 215,
+    "habitaciones": 1,
+    "baños": 4,
+    "parqueaderos": 1,
+    "cantidadComentarios": 13,
+    "ubicacion": "Calle 44 #66-34, San Lucas, Medellín",
+    "descripcion": "Hermoso local comercial ubicado en San Lucas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Piscina",
+      "Aire acondicionado",
+      "Parqueadero visitantes",
+      "Jardín privado"
+    ],
+    "arrendatario": {
+      "nombre": "Sara Marín",
+      "email": "contacto15@email.com",
+      "telefono": "+57 342540573"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Condominio Belén 22",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "O441767",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3701711,
+    "calificacion": 3.7,
+    "metrosCuadrados": 151,
+    "habitaciones": 4,
+    "baños": 2,
+    "parqueaderos": 1,
+    "cantidadComentarios": 77,
+    "ubicacion": "Calle 8 #52-62, Belén, Medellín",
+    "descripcion": "Hermoso oficina ubicado en Belén, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Pet Friendly",
+      "Zona BBQ",
+      "Cocina equipada",
+      "Piscina"
+    ],
+    "arrendatario": {
+      "nombre": "Sara López",
+      "email": "contacto16@email.com",
+      "telefono": "+57 399121323"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Oficina San Lucas 23",
+    "tipoPropiedad": "local comercial",
+    "codigoCasa": "L995458",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3687818,
+    "calificacion": 4.6,
+    "metrosCuadrados": 203,
+    "habitaciones": 5,
+    "baños": 2,
+    "parqueaderos": 0,
+    "cantidadComentarios": 28,
+    "ubicacion": "Calle 30 #14-10, San Lucas, Medellín",
+    "descripcion": "Hermoso local comercial ubicado en San Lucas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Gimnasio",
+      "Parqueadero visitantes",
+      "Pet Friendly",
+      "Aire acondicionado"
+    ],
+    "arrendatario": {
+      "nombre": "Pedro Marín",
+      "email": "contacto17@email.com",
+      "telefono": "+57 398249113"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Loft Bello 24",
+    "tipoPropiedad": "casa",
+    "codigoCasa": "C271930",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 4971676,
+    "calificacion": 3.9,
+    "metrosCuadrados": 188,
+    "habitaciones": 3,
+    "baños": 3,
+    "parqueaderos": 2,
+    "cantidadComentarios": 22,
+    "ubicacion": "Calle 12 #48-73, Bello, Medellín",
+    "descripcion": "Hermoso casa ubicado en Bello, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Aire acondicionado",
+      "Cocina equipada",
+      "Piscina",
+      "Seguridad 24/7"
+    ],
+    "arrendatario": {
+      "nombre": "Camila Torres",
+      "email": "contacto18@email.com",
+      "telefono": "+57 323328195"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Hogar El Poblado 25",
+    "tipoPropiedad": "studio",
+    "codigoCasa": "S450050",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3888625,
+    "calificacion": 3.7,
+    "metrosCuadrados": 69,
+    "habitaciones": 2,
+    "baños": 2,
+    "parqueaderos": 1,
+    "cantidadComentarios": 48,
+    "ubicacion": "Calle 1 #21-13, El Poblado, Medellín",
+    "descripcion": "Hermoso studio ubicado en El Poblado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Parqueadero visitantes",
+      "Gimnasio",
+      "Piscina",
+      "Aire acondicionado"
+    ],
+    "arrendatario": {
+      "nombre": "Luis Marín",
+      "email": "contacto19@email.com",
+      "telefono": "+57 341343600"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Residencia Envigado",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "O818408",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2898950,
+    "calificacion": 4.3,
+    "metrosCuadrados": 151,
+    "habitaciones": 2,
+    "baños": 4,
+    "parqueaderos": 0,
+    "cantidadComentarios": 26,
+    "ubicacion": "Calle 48 #15-6, Envigado, Medellín",
+    "descripcion": "Hermoso oficina ubicado en Envigado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "WiFi",
+      "Parqueadero visitantes",
+      "Cocina equipada",
+      "Piscina"
+    ],
+    "arrendatario": {
+      "nombre": "Diego Torres",
+      "email": "o818408@email.com",
+      "telefono": "+57 326204753"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Oficina El Poblado",
+    "tipoPropiedad": "local comercial",
+    "codigoCasa": "A215561",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2433257,
+    "calificacion": 4.7,
+    "metrosCuadrados": 73,
+    "habitaciones": 3,
+    "baños": 3,
+    "parqueaderos": 1,
+    "cantidadComentarios": 46,
+    "ubicacion": "Calle 41 #84-60, El Poblado, Medellín",
+    "descripcion": "Hermoso local comercial ubicado en El Poblado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Parqueadero visitantes",
+      "Seguridad 24/7",
+      "Pet Friendly",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Luis Torres",
+      "email": "a215561@email.com",
+      "telefono": "+57 356480302"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Suite Sabaneta",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "C659499",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2071629,
+    "calificacion": 4.0,
+    "metrosCuadrados": 127,
+    "habitaciones": 2,
+    "baños": 2,
+    "parqueaderos": 1,
+    "cantidadComentarios": 96,
+    "ubicacion": "Calle 33 #76-19, Sabaneta, Medellín",
+    "descripcion": "Hermoso oficina ubicado en Sabaneta, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Aire acondicionado",
+      "Piscina",
+      "Seguridad 24/7",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Luis Gómez",
+      "email": "c659499@email.com",
+      "telefono": "+57 363755321"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Casa El Poblado",
+    "tipoPropiedad": "bodega",
+    "codigoCasa": "F148299",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 4760598,
+    "calificacion": 4.1,
+    "metrosCuadrados": 169,
+    "habitaciones": 2,
+    "baños": 2,
+    "parqueaderos": 3,
+    "cantidadComentarios": 43,
+    "ubicacion": "Calle 7 #56-41, El Poblado, Medellín",
+    "descripcion": "Hermoso bodega ubicado en El Poblado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Gimnasio",
+      "Pet Friendly",
+      "Cocina equipada",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Ana Marín",
+      "email": "f148299@email.com",
+      "telefono": "+57 306102385"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Villa Sabaneta",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "A441613",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 4292521,
+    "calificacion": 4.9,
+    "metrosCuadrados": 196,
+    "habitaciones": 4,
+    "baños": 1,
+    "parqueaderos": 1,
+    "cantidadComentarios": 4,
+    "ubicacion": "Calle 31 #24-8, Sabaneta, Medellín",
+    "descripcion": "Hermoso oficina ubicado en Sabaneta, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Piscina",
+      "Seguridad 24/7",
+      "WiFi",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Lucía Restrepo",
+      "email": "a441613@email.com",
+      "telefono": "+57 337570636"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Villa Bello",
+    "tipoPropiedad": "studio",
+    "codigoCasa": "F721325",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3067436,
+    "calificacion": 3.6,
+    "metrosCuadrados": 89,
+    "habitaciones": 4,
+    "baños": 3,
+    "parqueaderos": 2,
+    "cantidadComentarios": 25,
+    "ubicacion": "Calle 4 #22-6, Bello, Medellín",
+    "descripcion": "Hermoso studio ubicado en Bello, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "WiFi",
+      "Aire acondicionado",
+      "Parqueadero visitantes",
+      "Zona BBQ"
+    ],
+    "arrendatario": {
+      "nombre": "Luis Marín",
+      "email": "f721325@email.com",
+      "telefono": "+57 331376164"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Suite Rionegro",
+    "tipoPropiedad": "bodega",
+    "codigoCasa": "C653827",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2309170,
+    "calificacion": 4.5,
+    "metrosCuadrados": 222,
+    "habitaciones": 4,
+    "baños": 1,
+    "parqueaderos": 2,
+    "cantidadComentarios": 58,
+    "ubicacion": "Calle 18 #32-10, Rionegro, Medellín",
+    "descripcion": "Hermoso bodega ubicado en Rionegro, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "WiFi",
+      "Zona BBQ",
+      "Aire acondicionado",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Ana Torres",
+      "email": "c653827@email.com",
+      "telefono": "+57 379829769"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Condominio Laureles",
+    "tipoPropiedad": "studio",
+    "codigoCasa": "A334759",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 4510824,
+    "calificacion": 3.6,
+    "metrosCuadrados": 246,
+    "habitaciones": 4,
+    "baños": 4,
+    "parqueaderos": 1,
+    "cantidadComentarios": 89,
+    "ubicacion": "Calle 37 #28-38, Laureles, Medellín",
+    "descripcion": "Hermoso studio ubicado en Laureles, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Seguridad 24/7",
+      "Cocina equipada",
+      "Jardín privado",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Camila Ramírez",
+      "email": "a334759@email.com",
+      "telefono": "+57 377765428"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Estudio Bello",
+    "tipoPropiedad": "casa",
+    "codigoCasa": "C390150",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2030423,
+    "calificacion": 4.7,
+    "metrosCuadrados": 140,
+    "habitaciones": 4,
+    "baños": 3,
+    "parqueaderos": 1,
+    "cantidadComentarios": 21,
+    "ubicacion": "Calle 12 #56-22, Bello, Medellín",
+    "descripcion": "Hermoso casa ubicado en Bello, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Gimnasio",
+      "WiFi",
+      "Piscina",
+      "Seguridad 24/7"
+    ],
+    "arrendatario": {
+      "nombre": "Camila Torres",
+      "email": "c390150@email.com",
+      "telefono": "+57 359115044"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Estudio Las Palmas",
+    "tipoPropiedad": "casa",
+    "codigoCasa": "A894641",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2604546,
+    "calificacion": 4.3,
+    "metrosCuadrados": 223,
+    "habitaciones": 4,
+    "baños": 3,
+    "parqueaderos": 3,
+    "cantidadComentarios": 26,
+    "ubicacion": "Calle 40 #56-78, Las Palmas, Medellín",
+    "descripcion": "Hermoso casa ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Zona BBQ",
+      "Pet Friendly",
+      "Parqueadero visitantes",
+      "Cocina equipada"
+    ],
+    "arrendatario": {
+      "nombre": "Luis Ramírez",
+      "email": "a894641@email.com",
+      "telefono": "+57 354972060"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Condominio Bello",
+    "tipoPropiedad": "finca",
+    "codigoCasa": "A380154",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3199835,
+    "calificacion": 4.6,
+    "metrosCuadrados": 221,
+    "habitaciones": 1,
+    "baños": 3,
+    "parqueaderos": 2,
+    "cantidadComentarios": 59,
+    "ubicacion": "Calle 19 #6-11, Bello, Medellín",
+    "descripcion": "Hermoso finca ubicado en Bello, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Gimnasio",
+      "Aire acondicionado",
+      "Piscina",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Luis López",
+      "email": "a380154@email.com",
+      "telefono": "+57 386055442"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Condominio Las Palmas",
+    "tipoPropiedad": "loft",
+    "codigoCasa": "A110588",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3559494,
+    "calificacion": 4.7,
+    "metrosCuadrados": 160,
+    "habitaciones": 1,
+    "baños": 3,
+    "parqueaderos": 1,
+    "cantidadComentarios": 21,
+    "ubicacion": "Calle 35 #12-67, Las Palmas, Medellín",
+    "descripcion": "Hermoso loft ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Seguridad 24/7",
+      "Parqueadero visitantes",
+      "Zona BBQ",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Pedro Restrepo",
+      "email": "a110588@email.com",
+      "telefono": "+57 328701729"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Residencia Bello",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "A185936",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3620972,
+    "calificacion": 3.6,
+    "metrosCuadrados": 189,
+    "habitaciones": 2,
+    "baños": 3,
+    "parqueaderos": 1,
+    "cantidadComentarios": 91,
+    "ubicacion": "Calle 48 #8-56, Bello, Medellín",
+    "descripcion": "Hermoso oficina ubicado en Bello, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Jardín privado",
+      "Zona BBQ",
+      "Parqueadero visitantes",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Sara López",
+      "email": "a185936@email.com",
+      "telefono": "+57 331460977"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Estudio Rionegro",
+    "tipoPropiedad": "apartamento",
+    "codigoCasa": "O932506",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 2475338,
+    "calificacion": 4.6,
+    "metrosCuadrados": 227,
+    "habitaciones": 4,
+    "baños": 2,
+    "parqueaderos": 2,
+    "cantidadComentarios": 39,
+    "ubicacion": "Calle 15 #85-8, Rionegro, Medellín",
+    "descripcion": "Hermoso apartamento ubicado en Rionegro, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Jardín privado",
+      "Gimnasio",
+      "Cocina equipada",
+      "Zona BBQ"
+    ],
+    "arrendatario": {
+      "nombre": "Ana Ramírez",
+      "email": "o932506@email.com",
+      "telefono": "+57 345689700"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Residencia Las Palmas",
+    "tipoPropiedad": "finca",
+    "codigoCasa": "A852943",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3241354,
+    "calificacion": 3.9,
+    "metrosCuadrados": 119,
+    "habitaciones": 4,
+    "baños": 4,
+    "parqueaderos": 0,
+    "cantidadComentarios": 54,
+    "ubicacion": "Calle 16 #6-52, Las Palmas, Medellín",
+    "descripcion": "Hermoso finca ubicado en Las Palmas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Seguridad 24/7",
+      "Parqueadero visitantes",
+      "WiFi",
+      "Gimnasio"
+    ],
+    "arrendatario": {
+      "nombre": "Ana Gómez",
+      "email": "a852943@email.com",
+      "telefono": "+57 363304667"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Casa San Lucas",
+    "tipoPropiedad": "bodega",
+    "codigoCasa": "O153768",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 1843014,
+    "calificacion": 4.6,
+    "metrosCuadrados": 125,
+    "habitaciones": 5,
+    "baños": 2,
+    "parqueaderos": 2,
+    "cantidadComentarios": 105,
+    "ubicacion": "Calle 29 #50-11, San Lucas, Medellín",
+    "descripcion": "Hermoso bodega ubicado en San Lucas, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Pet Friendly",
+      "Zona BBQ",
+      "Cocina equipada",
+      "Jardín privado"
+    ],
+    "arrendatario": {
+      "nombre": "Ana Restrepo",
+      "email": "o153768@email.com",
+      "telefono": "+57 334793536"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Hogar Belén",
+    "tipoPropiedad": "oficina",
+    "codigoCasa": "A895483",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3644907,
+    "calificacion": 4.7,
+    "metrosCuadrados": 82,
+    "habitaciones": 1,
+    "baños": 1,
+    "parqueaderos": 0,
+    "cantidadComentarios": 71,
+    "ubicacion": "Calle 37 #1-30, Belén, Medellín",
+    "descripcion": "Hermoso oficina ubicado en Belén, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Seguridad 24/7",
+      "Gimnasio",
+      "Aire acondicionado",
+      "Cocina equipada"
+    ],
+    "arrendatario": {
+      "nombre": "Juan Ramírez",
+      "email": "a895483@email.com",
+      "telefono": "+57 316275182"
+    },
+    "estado": "arrendada"
+  },
+  {
+    "nombreCasa": "Apartamento Envigado",
+    "tipoPropiedad": "bodega",
+    "codigoCasa": "A993796",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 3617124,
+    "calificacion": 4.7,
+    "metrosCuadrados": 154,
+    "habitaciones": 1,
+    "baños": 3,
+    "parqueaderos": 0,
+    "cantidadComentarios": 99,
+    "ubicacion": "Calle 24 #57-19, Envigado, Medellín",
+    "descripcion": "Hermoso bodega ubicado en Envigado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Jardín privado",
+      "Aire acondicionado",
+      "Pet Friendly",
+      "Zona BBQ"
+    ],
+    "arrendatario": {
+      "nombre": "Lucía Ramírez",
+      "email": "a993796@email.com",
+      "telefono": "+57 302984647"
+    },
+    "estado": "disponible"
+  },
+  {
+    "nombreCasa": "Hogar Envigado",
+    "tipoPropiedad": "local comercial",
+    "codigoCasa": "F555418",
+    "img": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    "precio": 4685280,
+    "calificacion": 4.5,
+    "metrosCuadrados": 226,
+    "habitaciones": 5,
+    "baños": 4,
+    "parqueaderos": 3,
+    "cantidadComentarios": 88,
+    "ubicacion": "Calle 4 #32-64, Envigado, Medellín",
+    "descripcion": "Hermoso local comercial ubicado en Envigado, con espacios modernos, buena iluminación y excelentes acabados.",
+    "amenidades": [
+      "Pet Friendly",
+      "Seguridad 24/7",
+      "Piscina",
+      "Parqueadero visitantes"
+    ],
+    "arrendatario": {
+      "nombre": "Camila Restrepo",
+      "email": "f555418@email.com",
+      "telefono": "+57 305554204"
+    },
+    "estado": "disponible"
+  }
+]
