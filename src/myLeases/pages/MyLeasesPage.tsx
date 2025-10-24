@@ -1,5 +1,5 @@
 import { useState } from "react";
-import propiedades from "../../mocks/propiedades.json";
+import propiedades from "../../json/propiedades.json";
 import { PropertyModal } from "../components/PropertyModal";
 import { PropertyCard } from "../components/PropertyCard";
 
