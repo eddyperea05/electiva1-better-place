@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Users,
-  Target,
   Heart,
   Lightbulb,
   TrendingUp,
-  Award,
 } from "lucide-react";
 
-import team from "../../mocks/team.json";
+import team from "../../json/team.json";
 
 export const AboutUsPage = () => {
   const [activeValue, setActiveValue] = useState(0);
