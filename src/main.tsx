@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { EventsApp } from "./EventsApp";
+import { App } from "./App";
 import './main.css'
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Router>
-      <EventsApp />
+      <App />
     </Router>
   </StrictMode>
 );
