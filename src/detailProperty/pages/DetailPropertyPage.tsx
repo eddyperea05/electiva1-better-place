@@ -13,8 +13,10 @@ import { StarsComponent } from "../../components/StarsComponent";
 import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../utils/formatPrice";
 import { getPropertyIcon } from "../../utils/getPropertyIcon";
+import { PropertyLeasedSuccessModal } from "../../ui/modals/PropertyLeasedSuccessModal";
 
 export const DetailPropertyPage = () => {
+  //hook para abrir una nueva pestaña
   const navigate = useNavigate();
 
   //llamada de la data desde el contexto
@@ -105,9 +107,7 @@ export const DetailPropertyPage = () => {
                 </h3>
               </div>
             </div>
-            <button className="capitalize py-2 font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm cursor-pointer">
-              arrendar propiedad
-            </button>
+            <PropertyLeasedSuccessModal/>
           </div>
         </section>
         <section className="mx-5">
@@ -160,9 +160,8 @@ export const DetailPropertyPage = () => {
             </h3>
           </div>
         </div>
-        <button className="capitalize py-2 font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm cursor-pointer">
-          arrendar propiedad
-        </button>
+
+        <PropertyLeasedSuccessModal/>
       </div>
     </div>
   );
