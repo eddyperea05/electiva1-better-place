@@ -7,8 +7,8 @@ import { DetailPropertyPage } from "../detailProperty/pages/DetailPropertyPage";
 import { LoginPage } from "../authentication/pages/LoginPage";
 import { RegisterPage } from "../authentication/pages/RegisterPage";
 import { MyLeasesPage } from "../myLeases/pages/MyLeasesPage";
-import { PropertyDetailPage } from "../ownerships/pages/PropertyDetailPage";
-import MyProperties from "../ownerships/pages/MyProperties";
+import {MyProperties} from "../ownerships/pages/MyProperties";
+import {PropertyDetailPage} from "../ownerships/pages/PropertyDetailPage";
 
 export const AppRouter = () => {
   return (

@@ -94,7 +94,7 @@ export const CardPropertyComponent = ({
             <p className="text-2xl font-bold text-black">
               {formatPrice(property.precio)}
             </p>
-            <p className="text-xs text-gray-500">por mes</p>
+            <p className="text-xs text-gray-500">por dia</p>
           </div>
           <div className="flex items-center gap-1">
             <Star

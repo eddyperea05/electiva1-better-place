@@ -11,7 +11,7 @@ export const PropertyCard = ({ data }: Props) => {
       to={`/propietario/${data.id}`}
       className="snap-start shrink-0 w-[280px] sm:w-[320px] rounded-2xl border border-black/10 overflow-hidden bg-white hover:shadow-lg transition"
     >
-      <div className="aspect-[4/3] overflow-hidden">
+      <div className="aspect-4/3 overflow-hidden">
         <img
           src={cover}
           alt={data.titulo}
@@ -30,7 +30,7 @@ export const PropertyCard = ({ data }: Props) => {
           <div className="rounded-xl bg-neutral-100 px-2 py-1 text-center">{data.metros} m²</div>
         </div>
 
-        <div className="mt-3 font-bold bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
+        <div className="mt-3 font-bold bg-linear-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
           {data.precio}
         </div>
       </div>

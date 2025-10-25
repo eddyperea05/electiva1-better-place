@@ -22,5 +22,3 @@ export const MyProperties = () => {
     </section>
   );
 };
-
-export default MyProperties;
