@@ -62,7 +62,7 @@ export const RegisterPage = () => {
               {/* botón para registrar el usuario */}
               <button
                 type="submit"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/login")}
                 className="capitalize w-100% bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] rounded-md py-2.5 block mt-5 cursor-pointer hover:transition-colors duration-200"
               >
                 <strong>registrarse</strong>
