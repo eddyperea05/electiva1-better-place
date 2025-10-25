@@ -27,7 +27,7 @@ export const CardPropertyComponent = ({
   //Función para enviar los datos al detalle de las propiedades
   const handleClickDetail = () => {
     setData({ ...property });
-    navigate("/Detail");
+    navigate("/detail");
   };
 
   return (
