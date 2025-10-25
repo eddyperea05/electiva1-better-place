@@ -33,7 +33,10 @@ export const PropertiesPage = () => {
         {/* contenedor por cada tarjeta */}
         {properties.map((property: any) => (
           /* componente de la tarjeta de propiedad */
-          <CardPropertyComponent key={property.codigoCasa} property={property} />
+          <CardPropertyComponent
+            key={property.codigoCasa}
+            property={property}
+          />
         ))}
       </section>
     </div>
