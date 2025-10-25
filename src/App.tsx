@@ -8,7 +8,7 @@ export const App = () => {
     <>
       <DetailProvider>
         <PropertiesProvider>
-          {/* <Navbar /> */}
+          <Navbar />
           <AppRouter />
         </PropertiesProvider>
       </DetailProvider>
