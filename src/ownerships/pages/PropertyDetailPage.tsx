@@ -75,7 +75,7 @@ export const PropertyDetailPage = () => {
         <div className="container">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div>
-              <Link to="/propietario" className="inline-block text-sm text-neutral-600 underline mb-3">← Volver</Link>
+              <Link to="/myProperties" className="inline-block text-sm text-neutral-600 underline mb-3">← Volver</Link>
               <h1 className="text-[clamp(28px,4vw,44px)] font-black">{prop.titulo}</h1>
               <p className="text-neutral-600">{prop.ubicacion}</p>
               <div className="mt-2 text-xs font-semibold">
