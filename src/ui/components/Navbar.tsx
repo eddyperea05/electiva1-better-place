@@ -21,7 +21,10 @@ export const Navbar = () => {
     <>
       <nav className="flex relative items-center justify-between bg-black h-18 px-5 shadow-lg">
         {/* logo del better place */}
-        <Link to="/" className="uppercase bg-gradient-to-r from-[#2A1EFA] to-[#BA1EFA] text-transparent bg-clip-text inline-block font-bold text-2xl">
+        <Link
+          to="/"
+          className="uppercase bg-gradient-to-r from-[#2A1EFA] to-[#BA1EFA] text-transparent bg-clip-text inline-block font-bold text-2xl"
+        >
           better place
         </Link>
 
@@ -62,6 +65,14 @@ export const Navbar = () => {
                     className="capitalize font-semibold text-white"
                   >
                     mis arrendamientos
+                  </NavLink>
+                </li>
+                <li className="border-b border-white pb-1 mb-3 md:border-none md:p-0 md:mb-0">
+                  <NavLink
+                    to="/myProperties"
+                    className="capitalize font-semibold text-white"
+                  >
+                    mis propiedades
                   </NavLink>
                 </li>
                 <li className="border-b border-white pb-1 mb-3 md:border-none md:p-0 md:mb-0">

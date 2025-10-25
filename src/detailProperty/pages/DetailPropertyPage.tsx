@@ -13,7 +13,7 @@ import { StarsComponent } from "../components/StarsComponent";
 import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../utils/formatPrice";
 import { getPropertyIcon } from "../../utils/getPropertyIcon";
-import { PropertyLeasedSuccessModal } from "../../ui/modals/PropertyLeasedSuccessModal";
+import { PropertyLeasedSuccessModal } from "../../ui/modals/propertyLeasedSuccessModal";
 
 export const DetailPropertyPage = () => {
   //hook para abrir una nueva pestaña
@@ -88,6 +88,11 @@ export const DetailPropertyPage = () => {
             {/* área de la propiedad */}
             <h4 className="capitalize text-gray-600 font-semibold mb-5">{`área de la propiedad ${data.metrosCuadrados}m²`}</h4>
 
+            {/* ubicación */}
+            <h4 className="capitalize text-gray-600 font-semibold mb-5">
+              {data.ubicacion}
+            </h4>
+
             {/* cantidad de habitaciones, baños y parqueaderos */}
             <div className="flex justify-between items-center mb-3">
               <div className="flex justify-center items-center">
@@ -107,7 +112,7 @@ export const DetailPropertyPage = () => {
                 </h3>
               </div>
             </div>
-            <PropertyLeasedSuccessModal/>
+            <PropertyLeasedSuccessModal />
           </div>
         </section>
         <section className="mx-5">
@@ -141,6 +146,11 @@ export const DetailPropertyPage = () => {
         {/* área de la propiedad */}
         <h4 className="capitalize text-gray-600 font-semibold mb-5">{`área de la propiedad ${data.metrosCuadrados}m²`}</h4>
 
+        {/* ubicación */}
+        <h4 className="capitalize text-gray-600 font-semibold mb-5">
+          {data.ubicacion}
+        </h4>
+
         {/* cantidad de habitaciones, baños y parqueaderos */}
         <div className="flex justify-between items-center mb-5">
           <div className="flex justify-center items-center">
@@ -161,7 +171,7 @@ export const DetailPropertyPage = () => {
           </div>
         </div>
 
-        <PropertyLeasedSuccessModal/>
+        <PropertyLeasedSuccessModal />
       </div>
     </div>
   );
