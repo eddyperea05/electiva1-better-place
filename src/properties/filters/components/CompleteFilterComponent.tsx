@@ -5,7 +5,6 @@ import { useWindowSize } from "../hooks/useWindowSize";
 
 //import icons
 import {
-  FaList,
   FaXmark,
   FaBuilding,
   FaAngleDown,
@@ -17,7 +16,10 @@ import {
   FaBed,
   FaBath,
   FaCar,
+  FaFilter,
 } from "react-icons/fa6";
+
+import { MdOutlineSquareFoot } from "react-icons/md";
 
 import { PiFarmBold } from "react-icons/pi";
 import { FilterInpuComponent } from "./CompleteFiltersComponents/FilterInpuComponent";
@@ -46,6 +48,7 @@ export const CompleteFilterComponent = () => {
     typeProperties: false,
     amountStuffs: false,
     amoutBudget: false,
+    amoutMeters: false,
   });
 
   //Función para mostrar la el modal de los filtros
@@ -62,6 +65,7 @@ export const CompleteFilterComponent = () => {
       "tipo de propiedad": "typeProperties",
       "cantidad de inmuebles": "amountStuffs",
       "cantidad de presupuesto": "amoutBudget",
+      "cantidad de metros": "amoutMeters",
     };
 
     //guardamos la llave como el valor del mapeo de la lista
@@ -83,14 +87,14 @@ export const CompleteFilterComponent = () => {
           onClick={handleModal}
           className="py-3 px-4 bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] rounded-md"
         >
-          <FaList className="text-white" />
+          <FaFilter className="text-white" />
         </button>
       )}
 
       {/* Tenemos isModalOpen para la vista movil y width que lo traemos del customhook para la
       version de escritorio */}
       {(isModalOpen || width > 768) && (
-        <div className="bg-white fixed overflow-scroll top-0 right-0 bottom-0 left-0 md:static md:overflow-auto md:border md:border-gray-300 md:rounded-sm md:p-3 shadow-lg z-999">
+        <div className="bg-white fixed overflow-scroll top-0 right-0 bottom-0 left-0 md:static md:overflow-auto md:border md:border-gray-300 md:rounded-sm md:p-3 shadow-lg z-10">
           <div className="flex flex-col md:mt-2">
             {/* boton para cerrar el modal en la vista movil */}
             <button
@@ -202,8 +206,10 @@ export const CompleteFilterComponent = () => {
                 className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-gray-300 rounded-sm"
               >
                 <div className="flex items-center gap-2">
-                  <FaPiggyBank className="text-[#2A1EFA]"/>
-                  <h3 className="capitalize text-gray-500">cantidad de presupuesto</h3>
+                  <FaPiggyBank className="text-[#2A1EFA]" />
+                  <h3 className="capitalize text-gray-500">
+                    cantidad de presupuesto
+                  </h3>
                 </div>
                 {!areOpenFilters.amoutBudget ? (
                   <FaAngleDown className="text-gray-500" />
@@ -225,6 +231,45 @@ export const CompleteFilterComponent = () => {
                       className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
                       type="text"
                       placeholder="Máximo $"
+                    />
+                  </div>
+                  <button className="w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] py-2.5 text-white font-bold md:cursor-pointer rounded-sm">
+                    Aplicar
+                  </button>
+                </div>
+              )}
+
+              {/* boton para buscar por cantidad de presupuesto */}
+              <button
+                onClick={handleChangeAreOpenFilters}
+                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-gray-300 rounded-sm"
+              >
+                <div className="flex items-center gap-2">
+                  <MdOutlineSquareFoot className="text-[#2A1EFA]" />
+                  <h3 className="capitalize text-gray-500">
+                    cantidad de metros
+                  </h3>
+                </div>
+                {!areOpenFilters.amoutBudget ? (
+                  <FaAngleDown className="text-gray-500" />
+                ) : (
+                  <FaAngleUp className="text-gray-500" />
+                )}
+              </button>
+
+              {/* ventana para abrir los inputs de la cantidad de precio */}
+              {areOpenFilters.amoutMeters && (
+                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
+                  <div>
+                    <input
+                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
+                      type="text"
+                      placeholder="Mínimo m²"
+                    />
+                    <input
+                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
+                      type="text"
+                      placeholder="Máximo m²"
                     />
                   </div>
                   <button className="w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] py-2.5 text-white font-bold md:cursor-pointer rounded-sm">
