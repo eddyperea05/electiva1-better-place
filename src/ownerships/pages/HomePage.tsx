@@ -9,8 +9,8 @@ export function HomePage() {
           <p className="hero__subtitle">
             Creando espacios donde las conexiones florecen y los sueños se hacen realidad
           </p>
-          <Link to="/propietario" className="btn-gradient">
-            Este es el mejor lugar
+          <Link to="/register" className="btn-gradient">
+            ¡registrate ya!
           </Link>
         </div>
       </section>
