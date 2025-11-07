@@ -1,29 +1,31 @@
+//imports react-router
 import { Routes, Route } from "react-router-dom";
-import { NotFound } from "../ui/components/NotFound";
 import { HomePage } from "../ownerships/pages/HomePage";
-import { PropertiesPage } from "../properties/pages/PropertiesPage";
-import { AboutUsPage } from "../aboutUS/page/AboutUsPage";
-import { DetailPropertyPage } from "../detailProperty/pages/DetailPropertyPage";
-import { LoginPage } from "../authentication/pages/LoginPage";
+
+//Imports componentes
 import { RegisterPage } from "../authentication/pages/RegisterPage";
-import { MyLeasesPage } from "../myLeases/pages/MyLeasesPage";
-import {MyProperties} from "../ownerships/pages/MyProperties";
-import {PropertyDetailPage} from "../ownerships/pages/PropertyDetailPage";
+import { LoginPage } from "../authentication/pages/LoginPage";
+import { GeneralRoutes } from "./GeneralRoutes";
+import { PrivatePolicityRouter } from "./PrivatePolicityRouter";
 
 export const AppRouter = () => {
   return (
     <>
       <Routes>
+        {/* Rutas publicas */}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/properties" element={<PropertiesPage />} />
-        <Route path="/myLeases" element={<MyLeasesPage />} />
-        <Route path="/myProperties" element={<MyProperties />} />
-        <Route path="/detail" element={<DetailPropertyPage />} />
-        <Route path="/about-us" element={<AboutUsPage />} />
-        <Route path="/propietario/:id" element={<PropertyDetailPage />} />
-        <Route path="/*" element={<NotFound />} />
+
+        {/* Rutas protegidas */}
+        <Route
+          path="*"
+          element={
+            <PrivatePolicityRouter>
+              <GeneralRoutes />
+            </PrivatePolicityRouter>
+          }
+        />
       </Routes>
     </>
   );
