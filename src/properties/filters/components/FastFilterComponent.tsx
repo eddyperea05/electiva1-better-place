@@ -15,7 +15,6 @@ const fastFilters = [
 ];
 
 export const FastFilterComponent = () => {
-
   //se importaron los estados del contexto de PropertiesContext
   const { setFastFilter } = useDataPropertiesContext();
 
@@ -30,9 +29,9 @@ export const FastFilterComponent = () => {
   //Función para enviar el tipo de filtro al contexto de PropertiesContext
   const handleSelectFilter = (e: any) => {
     const filter = e.target.textContent;
-    setFastFilter(filter);
+    setFastFilter({ sortBy: filter });
     setIsOpenList(false);
-  }
+  };
 
   return (
     <>
@@ -41,8 +40,14 @@ export const FastFilterComponent = () => {
         onClick={handleList}
         className="flex justify-between items-center outline-1 rounded-md outline-gray-300 py-3 px-4 w-full mr-3 md:mr-0 md:mb-3 shadow-lg"
       >
-        <h3 className="capitalize mr-2 cursor-pointer text-gray-500">ordenar por</h3>
-        {!isOpenList ? <FaAngleDown className="text-gray-500"/> : <FaAngleUp className="text-gray-500"/>}
+        <h3 className="capitalize mr-2 cursor-pointer text-gray-500">
+          ordenar por
+        </h3>
+        {!isOpenList ? (
+          <FaAngleDown className="text-gray-500" />
+        ) : (
+          <FaAngleUp className="text-gray-500" />
+        )}
       </button>
 
       {/* esta es la lista de los filtros rapidos */}
