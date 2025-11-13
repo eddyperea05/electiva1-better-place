@@ -17,7 +17,7 @@ import {
   loginUser,
   loginWithGoogle,
   registerUser,
-} from "../../firebase/functions/functionsFirebase";
+} from "../../firebase/functions/functionsAuthFirebase";
 
 //imports de formik
 import { ErrorMessage, Field, Form, Formik } from "formik";
