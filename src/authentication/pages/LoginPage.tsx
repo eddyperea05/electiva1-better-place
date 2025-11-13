@@ -12,7 +12,7 @@ import type { UserDataLogin } from "../types/userDataType";
 import {
   loginUser,
   loginWithGoogle,
-} from "../../firebase/functions/functionsFirebase";
+} from "../../firebase/functions/functionsAuthFirebase";
 import { userDataContext } from "../hooks/userDataContext";
 import { handleLoginErrors } from "../errors/errorsValidations";
 import { LoadingModal } from "../../ui/modals/LoadingModal";
