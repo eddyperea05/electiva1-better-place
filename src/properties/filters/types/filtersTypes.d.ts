@@ -6,7 +6,3 @@ export type filters = {
     mas_habitaciones: "más habitaciones";
     menos_habitaciones: "menos habitaciones";
 };
-
-export interface Property {
-    
-}
