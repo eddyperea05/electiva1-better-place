@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import type { FastFilter } from "./types/PropertiesContextTypes";
+import type { FilterType } from "./types/PropertiesContextTypes";
 
-export const PropertiesContext = createContext<FastFilter | null>(null);
+export const PropertiesContext = createContext<FilterType | null>(null);
