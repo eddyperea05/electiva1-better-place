@@ -1,28 +1,28 @@
-type TipoPropiedad = "oficina" | "apartamento" | "casa" | "loft" | "penthouse";
-type EstadoPropiedad = "arrendada" | "libre";
+type typeProperty = "oficina" | "apartamento" | "casa" | "finca";
+type status = "arrendada" | "libre";
 
 //Esta cosa es posible que cambie, porque aun no se que lleva el dueno de la propiedad
-interface Arrendatario {
-  nombre: string;
+interface lessee {
+  name: string;
   email: string;
-  telefono: string;
+  phone: string;
 }
 
 export interface PropiedadInterface {
-  nombreCasa: string;
-  tipoPropiedad: TipoPropiedad;
-  codigoCasa: string;
-  img: string;
-  precio: number;
-  calificacion: number;
-  metrosCuadrados: number;
-  habitaciones: number;
-  baños: number;
-  parqueaderos: number;
-  cantidadComentarios: number;
-  ubicacion: string;
+  name: string;
+  typeProperty: typeProperty;
+  code: string;
+  image: string;
+  price: number;
+  rate: number;
+  metres: number;
+  rooms: number;
+  baths: number;
+  parkingLots: number;
+  publicationDate: Date;
+  address: string;
   descripcion: string;
-  amenidades: string[];
-  arrendatario: Arrendatario;
-  estado: EstadoPropiedad;
+  benefits: string[];
+  lessee: lessee;
+  status: status;
 }
