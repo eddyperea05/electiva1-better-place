@@ -3,8 +3,7 @@
       'oficina': '🏢',
       'apartamento': '🏬',
       'casa': '🏡',
-      'loft': '🏙️',
-      'penthouse': '🏰'
+      'finca': '🛖'
     };
     return icons[tipo] || '🏠';
   };
