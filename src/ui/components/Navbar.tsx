@@ -15,7 +15,7 @@ import { userDataContext } from "../../authentication/hooks/userDataContext";
 import { PerfilForm } from "../forms/PerfilForm";
 import {
   handleLogOutUser,
-} from "../../firebase/functions/functionsFirebase";
+} from "../../firebase/functions/functionsAuthFirebase";
 export const Navbar = () => {
 
   const navigate = useNavigate();
