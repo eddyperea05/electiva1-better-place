@@ -37,13 +37,13 @@ export const CardPropertyComponent = ({
     >
       <div className="relative h-56 overflow-hidden">
         <img
-          src={property.img}
-          alt={property.nombreCasa}
+          src={property.image}
+          alt={property.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute top-4 left-4 px-3 py-1 bg-white rounded-full text-sm font-semibold flex items-center gap-1">
-          <span>{getPropertyIcon(property.tipoPropiedad)}</span>
-          <span className="capitalize">{property.tipoPropiedad}</span>
+          <span>{getPropertyIcon(property.typeProperty)}</span>
+          <span className="capitalize">{property.typeProperty}</span>
         </div>
         <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white rounded-full text-sm font-semibold">
           Arrendada
@@ -52,7 +52,7 @@ export const CardPropertyComponent = ({
 
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2 text-black group-hover:text-gray-900">
-          {property.nombreCasa}
+          {property.name}
         </h3>
 
         <div className="flex items-center gap-2 mb-4 text-gray-600">
@@ -60,7 +60,7 @@ export const CardPropertyComponent = ({
             className="w-4 h-4 flex-shrink-0"
             style={{ color: "#2A1EFA" }}
           />
-          <span className="text-sm line-clamp-1">{property.ubicacion}</span>
+          <span className="text-sm line-clamp-1">{property.address}</span>
         </div>
 
         <div className="mb-4 pb-4 border-b border-gray-100">
@@ -68,7 +68,7 @@ export const CardPropertyComponent = ({
           <div className="flex items-center gap-2">
             <User className="w-4 h-4" style={{ color: "#2A1EFA" }} />
             <span className="text-sm font-semibold text-black">
-              {property.arrendatario.nombre}
+              {property.lessee.name}
             </span>
           </div>
         </div>
@@ -77,22 +77,22 @@ export const CardPropertyComponent = ({
         <div className="grid grid-cols-3 gap-3 mb-4 pb-4 border-b border-gray-100">
           <div className="flex items-center gap-2 text-gray-600">
             <Bed className="w-4 h-4 text-[#BA1EFA]" />
-            <span className="text-sm text-[#721EFA]">{property.habitaciones}</span>
+            <span className="text-sm text-[#721EFA]">{property.rooms}</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Bath className="w-4 h-4 text-[#BA1EFA]" />
-            <span className="text-sm text-[#721EFA]">{property.baños}</span>
+            <span className="text-sm text-[#721EFA]">{property.baths}</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Car className="w-4 h-4 text-[#BA1EFA]" />
-            <span className="text-sm text-[#721EFA]">{property.parqueaderos}</span>
+            <span className="text-sm text-[#721EFA]">{property.parkingLots}</span>
           </div>
         </div>
 
         <div className="flex items-center justify-between">
           <div>
             <p className="text-2xl font-bold text-black">
-              {formatPrice(property.precio)}
+              {formatPrice(property.price)}
             </p>
             <p className="text-xs text-gray-500">por dia</p>
           </div>
@@ -102,7 +102,7 @@ export const CardPropertyComponent = ({
               style={{ color: "#2A1EFA" }}
             />
             <span className="font-bold text-black">
-              {property.calificacion}
+              {property.rate}
             </span>
           </div>
         </div>
