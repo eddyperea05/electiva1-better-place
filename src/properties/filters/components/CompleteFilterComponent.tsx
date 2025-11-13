@@ -4,46 +4,31 @@ import { useState } from "react";
 import { useWindowSize } from "../hooks/useWindowSize";
 
 //import icons
-import {
-  FaXmark,
-  FaBuilding,
-  FaAngleDown,
-  FaAngleUp,
-  FaChair,
-  FaPiggyBank,
-  FaHouse,
-  FaStore,
-  FaBed,
-  FaBath,
-  FaCar,
-  FaFilter,
-} from "react-icons/fa6";
+import { FaXmark, FaFilter } from "react-icons/fa6";
 
-import { MdOutlineSquareFoot } from "react-icons/md";
-
-import { PiFarmBold } from "react-icons/pi";
+//imports de componentes
 import { FilterInpuComponent } from "./CompleteFiltersComponents/FilterInpuComponent";
+import { FilterTypeProperty } from "./CompleteFiltersComponents/FilterTypeProperty";
+import { FilterAmoutStuffs } from "./CompleteFiltersComponents/FilterAmoutStuffs";
+import { FilterRangePice } from "./CompleteFiltersComponents/FilterRangePice";
+import { FilterRageMetres } from "./CompleteFiltersComponents/FilterRageMetres";
 
-//array para usarlo en la iteración cuando se habra el filtro de propiedades
-const typeOfProperty = [
-  { property: "casa", icon: FaHouse },
-  { property: "apartamento", icon: FaBuilding },
-  { property: "finca", icon: PiFarmBold },
-  { property: "estudio", icon: FaStore },
-];
+//import de tipos
+import type { Filter } from "../../context/types/PropertiesContextTypes";
 
-//array para usarlo en la iteración cuando se habra el filtro de inmuebles
-const typeOfStuff = [
-  { stuff: "habitaciones", icon: FaBed },
-  { stuff: "baños", icon: FaBath },
-  { stuff: "parqueaderos", icon: FaCar },
-];
+//import de contexto de las propiedades
+import { useDataPropertiesContext } from "../hooks/useDataPropertiesContext";
 
 export const CompleteFilterComponent = () => {
   //custom hook para saber el tamaño de la ventana
   const { width } = useWindowSize();
 
+  const { typeFastFilter, setFastFilter } = useDataPropertiesContext();
+
+  //Hook para abrir o cerrar el modal
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  //Hook para saber cual modal de cerro
   const [areOpenFilters, setAreOpenFilters] = useState({
     typeProperties: false,
     amountStuffs: false,
@@ -57,8 +42,10 @@ export const CompleteFilterComponent = () => {
   };
 
   //Función para abrir los filtros completos
-  const handleChangeAreOpenFilters = (e: any) => {
-    const textButton = e.target.textContent;
+  const handleChangeAreOpenFilters = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    const textButton = e.currentTarget.textContent;
 
     //creamos una lista donde los valores sea el valor del objeto
     const mapTextToKey: Record<string, keyof typeof areOpenFilters> = {
@@ -77,6 +64,33 @@ export const CompleteFilterComponent = () => {
       ...prev,
       [key]: !prev[key],
     }));
+  };
+
+  //Función para limpiar todos los filtros
+  const handleClearAllFilters = () => {
+    setFastFilter({
+      typeProperties: [],
+      amountStuffs: {},
+      budgetRange: { min: undefined, max: undefined },
+      metersRange: { min: undefined, max: undefined },
+      sortBy: "",
+    });
+  };
+
+  //Función para saber que filtros estan activados
+  const hasActiveFilters = (filter?: Filter): boolean => {
+    if (!filter) return false;
+
+    //Retornamos todos los filtros activamos y validamos que seand diferendes de undefined
+    return (
+      (filter.typeProperties?.length ?? 0) > 0 ||
+      Object.values(filter.amountStuffs ?? {}).some((v) => v !== undefined) ||
+      filter.budgetRange?.min !== undefined ||
+      filter.budgetRange?.max !== undefined ||
+      filter.metersRange?.min !== undefined ||
+      filter.metersRange?.max !== undefined ||
+      !!filter.sortBy
+    );
   };
 
   return (
@@ -107,176 +121,46 @@ export const CompleteFilterComponent = () => {
               />
             </button>
 
+            {hasActiveFilters(typeFastFilter) && (
+              <button
+                onClick={handleClearAllFilters}
+                className="capitalize my-4 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+              >
+                quitar filtros
+              </button>
+            )}
+
             {/* fitrar por tipo */}
             <div className="mx-5 md:mx-0">
               {/* input para buscar por código */}
               <FilterInpuComponent />
 
-              {/* boton para buscar por tipo de propiedad */}
-              <button
-                onClick={handleChangeAreOpenFilters}
-                className="flex justify-between items-center w-full p-3 outline-1 outline-gray-300 rounded-sm"
-              >
-                <div className="flex items-center gap-2">
-                  <FaBuilding className="text-[#2A1EFA]" />
-                  <h3 className="capitalize text-gray-500">
-                    tipo de propiedad
-                  </h3>
-                </div>
-                {!areOpenFilters.typeProperties ? (
-                  <FaAngleDown className="text-gray-500" />
-                ) : (
-                  <FaAngleUp className="text-gray-500" />
-                )}
-              </button>
+              {/* Filtrar por propiedades */}
+              <FilterTypeProperty
+                handleChange={handleChangeAreOpenFilters}
+                areOpenFilters={areOpenFilters}
+                typeFastFilter={typeFastFilter}
+              />
 
-              {/* Iteración para mostrar los iconos y el nombre de cada checkbox */}
-              {areOpenFilters.typeProperties && (
-                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
-                  <ul>
-                    {typeOfProperty.map(({ property, icon: Icon }, index) => (
-                      <li key={index} className="flex justify-between mb-2">
-                        <div className="flex justify-center items-center">
-                          <Icon className="mr-2 text-[#2A1EFA]" />
-                          <h3 className="capitalize text-gray-500">
-                            {property}
-                          </h3>
-                        </div>
-                        <input type="checkbox" name={property} id="" />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {/* Filtar por cantidad de cosas */}
+              <FilterAmoutStuffs
+                handleChange={handleChangeAreOpenFilters}
+                areOpenFilters={areOpenFilters}
+              />
 
-              {/* boton para buscar por tipo de cantidad de cuartos, baños y parqueaderos */}
-              <button
-                onClick={handleChangeAreOpenFilters}
-                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-gray-300 rounded-sm"
-              >
-                <div className="flex items-center gap-2">
-                  <FaChair className="text-[#2A1EFA]" />
-                  <h3 className="capitalize text-gray-500">
-                    cantidad de inmuebles
-                  </h3>
-                </div>
-                {!areOpenFilters.amountStuffs ? (
-                  <FaAngleDown className="text-gray-500" />
-                ) : (
-                  <FaAngleUp className="text-gray-500" />
-                )}
-              </button>
+              {/* Filtrar por rango de precios */}
+              <FilterRangePice
+                handleChange={handleChangeAreOpenFilters}
+                areOpenFilters={areOpenFilters}
+                typeFastFilter={typeFastFilter}
+              />
 
-              {/* Iteración para mostrar los iconos y el nombre de cada inmueble */}
-              {areOpenFilters.amountStuffs && (
-                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
-                  <ul>
-                    {typeOfStuff.map(({ stuff, icon: Icon }, index) => (
-                      <li key={index} className="mb-3">
-                        <div className="flex items-center mb-3">
-                          <Icon className="mr-2 text-[#2A1EFA]" />
-                          <h3 className="capitalize text-gray-500">{stuff}</h3>
-                        </div>
-                        <div className="flex justify-between">
-                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
-                            1
-                          </button>
-                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
-                            2
-                          </button>
-                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
-                            3
-                          </button>
-                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
-                            4
-                          </button>
-                          <button className="cursor-pointer outline-1 outline-gray-300 text-gray-500 py-2 px-4 rounded-xl">
-                            5+
-                          </button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* boton para buscar por cantidad de presupuesto */}
-              <button
-                onClick={handleChangeAreOpenFilters}
-                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-gray-300 rounded-sm"
-              >
-                <div className="flex items-center gap-2">
-                  <FaPiggyBank className="text-[#2A1EFA]" />
-                  <h3 className="capitalize text-gray-500">
-                    cantidad de presupuesto
-                  </h3>
-                </div>
-                {!areOpenFilters.amoutBudget ? (
-                  <FaAngleDown className="text-gray-500" />
-                ) : (
-                  <FaAngleUp className="text-gray-500" />
-                )}
-              </button>
-
-              {/* ventana para abrir los inputs de la cantidad de precio */}
-              {areOpenFilters.amoutBudget && (
-                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
-                  <div>
-                    <input
-                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
-                      type="text"
-                      placeholder="Mínimo $"
-                    />
-                    <input
-                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
-                      type="text"
-                      placeholder="Máximo $"
-                    />
-                  </div>
-                  <button className="w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] py-2.5 text-white font-bold md:cursor-pointer rounded-sm">
-                    Aplicar
-                  </button>
-                </div>
-              )}
-
-              {/* boton para buscar por cantidad de presupuesto */}
-              <button
-                onClick={handleChangeAreOpenFilters}
-                className="flex justify-between items-center w-full p-3 mt-5 outline-1 outline-gray-300 rounded-sm"
-              >
-                <div className="flex items-center gap-2">
-                  <MdOutlineSquareFoot className="text-[#2A1EFA]" />
-                  <h3 className="capitalize text-gray-500">
-                    cantidad de metros
-                  </h3>
-                </div>
-                {!areOpenFilters.amoutBudget ? (
-                  <FaAngleDown className="text-gray-500" />
-                ) : (
-                  <FaAngleUp className="text-gray-500" />
-                )}
-              </button>
-
-              {/* ventana para abrir los inputs de la cantidad de precio */}
-              {areOpenFilters.amoutMeters && (
-                <div className="my-3 outline outline-gray-300 p-3 rounded-sm">
-                  <div>
-                    <input
-                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
-                      type="text"
-                      placeholder="Mínimo m²"
-                    />
-                    <input
-                      className="w-full outline-1 outline-gray-300 py-2 px-4 mb-3 rounded-sm"
-                      type="text"
-                      placeholder="Máximo m²"
-                    />
-                  </div>
-                  <button className="w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] py-2.5 text-white font-bold md:cursor-pointer rounded-sm">
-                    Aplicar
-                  </button>
-                </div>
-              )}
+              {/* Filtrar por rango de metros */}
+              <FilterRageMetres
+                handleChange={handleChangeAreOpenFilters}
+                areOpenFilters={areOpenFilters}
+                typeFastFilter={typeFastFilter}
+              />
             </div>
           </div>
         </div>
