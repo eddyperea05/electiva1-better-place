@@ -26,7 +26,7 @@ export const DetailPropertyPage = () => {
     <div className="flex flex-col md:flex-row mt-5">
       <div className="max-w-[1026px]">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/properties")}
           className="ml-5 mb-5 bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] p-3 rounded-md cursor-pointer"
         >
           <FaArrowLeft className="text-white text-[1rem]" />
@@ -35,23 +35,23 @@ export const DetailPropertyPage = () => {
           {/* renderizado de imagen de la propiedad */}
           <img
             className="max-w-[1026px] w-full h-120 rounded-sm"
-            src={data.img}
-            alt={`casa de ${data.arrendatario}`}
+            src={data.image}
+            alt={`casa de ${data.lessee.name}`}
           />
         </div>
         <section className="mx-5">
           <div>
             {/* código de la propiedad */}
             <h2 className="font-semibold text-[#721EFA] text-[1.5rem]">
-              {data.codigoCasa}
+              {data.code}
             </h2>
             {/* nombre de la propiedad */}
             <h1 className="capitalize font-bold text-gray-700 text-[2.5rem] mb-5">
-              {data.nombreCasa}
+              {data.name}
             </h1>
             {/* componente para mostrar las estrellas */}
             <div className="mb-5">
-              <StarsComponent amoutStarts={data.calificacion} />
+              <StarsComponent amoutStarts={data.rate} />
             </div>
             {/* descripción de la propiedad */}
             <div className="mb-5">
@@ -59,11 +59,7 @@ export const DetailPropertyPage = () => {
                 descripción
               </h2>
               <p className="text-gray-500">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel,
-                explicabo nesciunt. Officia fugit aliquid corporis ullam
-                veritatis! Quos placeat omnis molestias, itaque officiis
-                voluptatibus inventore maxime repellat sapiente voluptatem
-                minima.
+                {data.descripcion}
               </p>
             </div>
           </div>
@@ -71,26 +67,26 @@ export const DetailPropertyPage = () => {
           <div className="md:hidden outline outline-gray-300 p-4 rounded-sm">
             <div className="outline outline-gray-300 py-2 px-3 inline-block rounded-full mb-5">
               <div className="flex">
-                <p className="mr-2">{getPropertyIcon(data.tipoPropiedad)}</p>
+                <p className="mr-2">{getPropertyIcon(data.typeProperty)}</p>
                 <h3 className="capitalize text-[#721EFA]   font-semibold text-[1rem] ">
-                  {data.tipoPropiedad}
+                  {data.typeProperty}
                 </h3>
               </div>
             </div>
             {/* nombre del arrendador */}
-            <h2 className="capitalize text-gray-600 font-semibold mb-5">{`propietario: ${data.arrendatario.nombre}`}</h2>
+            <h2 className="capitalize text-gray-600 font-semibold mb-5">{`propietario: ${data.lessee.name}`}</h2>
 
             {/* precio de arrendamiento por día */}
             <h2 className="capitalize text-gray-600 font-semibold mb-5">{`arrendar a partir de ${formatPrice(
-              data.precio
+              data.price
             )}`}</h2>
 
             {/* área de la propiedad */}
-            <h4 className="capitalize text-gray-600 font-semibold mb-5">{`área de la propiedad ${data.metrosCuadrados}m²`}</h4>
+            <h4 className="capitalize text-gray-600 font-semibold mb-5">{`área de la propiedad ${data.metres}m²`}</h4>
 
             {/* ubicación */}
             <h4 className="capitalize text-gray-600 font-semibold mb-5">
-              {data.ubicacion}
+              {data.address}
             </h4>
 
             {/* cantidad de habitaciones, baños y parqueaderos */}
@@ -98,17 +94,17 @@ export const DetailPropertyPage = () => {
               <div className="flex justify-center items-center">
                 <FaBed className="mr-3 text-[#BA1EFA]" />
                 <h3 className="font-bold text-[#721EFA]">
-                  {data.habitaciones} hab.
+                  {data.rooms} hab.
                 </h3>
               </div>
               <div className="flex justify-center items-center">
                 <FaBath className="mr-3 text-[#BA1EFA]" />
-                <h3 className="font-bold text-[#721EFA]">{data.baños} bañ.</h3>
+                <h3 className="font-bold text-[#721EFA]">{data.baths} bañ.</h3>
               </div>
               <div className="flex justify-center items-center">
                 <FaCar className="mr-3 text-[#BA1EFA]" />
                 <h3 className="font-bold text-[#721EFA]">
-                  {data.parqueaderos} par.
+                  {data.parkingLots} par.
                 </h3>
               </div>
             </div>
@@ -117,10 +113,10 @@ export const DetailPropertyPage = () => {
         </section>
         <section className="mx-5">
           {/* componente para agregar comentarios */}
-          <AddCommentComponent codeHouse={data.codigoCasa} />
+          <AddCommentComponent codeHouse={data.code} />
 
           {/* componente para visualizar los componentes */}
-          <CommentsComponent codeHouse={data.codigoCasa} />
+          <CommentsComponent codeHouse={data.code} />
         </section>
       </div>
 
@@ -129,26 +125,26 @@ export const DetailPropertyPage = () => {
       <div className="outline outline-gray-300 hidden sticky top-0 self-start md:w-[300px] p-5 mt-16 mr-5 rounded-sm md:block shadow-lg">
         <div className="outline outline-gray-300 py-2 px-3 inline-block rounded-full mb-5">
           <div className="flex">
-            <p className="mr-2">{getPropertyIcon(data.tipoPropiedad)}</p>
+            <p className="mr-2">{getPropertyIcon(data.typeProperty)}</p>
             <h3 className="capitalize text-[#721EFA]   font-semibold text-[1rem] ">
-              {data.tipoPropiedad}
+              {data.typeProperty}
             </h3>
           </div>
         </div>
         {/* nombre del arrendador */}
-        <h2 className="capitalize text-gray-600 font-semibold mb-5">{`propietario: ${data.arrendatario.nombre}`}</h2>
+        <h2 className="capitalize text-gray-600 font-semibold mb-5">{`propietario: ${data.lessee.name}`}</h2>
 
         {/* precio de arrendamiento por día */}
         <h2 className="capitalize text-gray-600 font-semibold mb-5">{`arrendar a partir de ${formatPrice(
-          data.precio
+          data.price
         )}`}</h2>
 
         {/* área de la propiedad */}
-        <h4 className="capitalize text-gray-600 font-semibold mb-5">{`área de la propiedad ${data.metrosCuadrados}m²`}</h4>
+        <h4 className="capitalize text-gray-600 font-semibold mb-5">{`área de la propiedad ${data.metres}m²`}</h4>
 
         {/* ubicación */}
         <h4 className="capitalize text-gray-600 font-semibold mb-5">
-          {data.ubicacion}
+          {data.address}
         </h4>
 
         {/* cantidad de habitaciones, baños y parqueaderos */}
@@ -156,17 +152,17 @@ export const DetailPropertyPage = () => {
           <div className="flex justify-center items-center">
             <FaBed className="mr-3 text-[#BA1EFA]" />
             <h3 className="font-bold text-[#721EFA]">
-              {data.habitaciones} hab.
+              {data.rooms} hab.
             </h3>
           </div>
           <div className="flex justify-center items-center">
             <FaBath className="mr-3 text-[#BA1EFA]" />
-            <h3 className="font-bold text-[#721EFA]">{data.baños} bañ.</h3>
+            <h3 className="font-bold text-[#721EFA]">{data.baths} bañ.</h3>
           </div>
           <div className="flex justify-center items-center">
             <FaCar className="mr-3 text-[#BA1EFA]" />
             <h3 className="font-bold text-[#721EFA]">
-              {data.parqueaderos} par.
+              {data.parkingLots} par.
             </h3>
           </div>
         </div>
