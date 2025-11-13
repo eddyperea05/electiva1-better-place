@@ -1,12 +1,16 @@
-import comentarios_propíedades from "../../json/comentarios_propiedades.json";
+import { useState } from "react";
+import { addCommentToProperty } from "../../firebase/functions/functionsPropertiesFirebase";
 
 import { FaComment } from "react-icons/fa";
 
 export const AddCommentComponent = ({ codeHouse }: { codeHouse: string }) => {
-  //guardamos en una variable los comentarios que coincidan con el código de la casa
-  const comments = comentarios_propíedades.find(
-    (comment) => comment.codigoCasa === codeHouse
-  );
+  const [commentText, setCommentText] = useState("");
+
+  const handleAddComment = async () => {
+    if (!commentText.trim()) return;
+    await addCommentToProperty(codeHouse, currentUser.uid, commentText);
+    setCommentText("");
+  };
 
   return (
     <>
@@ -18,15 +22,19 @@ export const AddCommentComponent = ({ codeHouse }: { codeHouse: string }) => {
           </h2>
           <div className="flex items-center">
             <FaComment className="mr-2 text-[#2A1EFA]" />
-            <h3 className="text-gray-500">{comments?.comentarios.length}</h3>
+            <h3 className="text-gray-500">0</h3>
           </div>
         </div>
         <textarea
+          onChange={(e) => setCommentText(e.target.value)}
           className="w-full h-40  outline-1 outline-gray-300 resize-none p-3 mb-4 rounded-sm"
           placeholder="Añade un comentario"
         />
         <div className="w-full flex justify-end">
-          <button className="capitalize font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm py-3 mb-10 cursor-pointer md:w-40">
+          <button
+            onClick={handleAddComment}
+            className="capitalize font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm py-3 mb-10 cursor-pointer md:w-40"
+          >
             comentar
           </button>
         </div>
