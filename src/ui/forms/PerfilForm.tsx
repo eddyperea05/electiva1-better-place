@@ -7,7 +7,7 @@ import { IoClose } from "react-icons/io5";
 import { userDataContext } from "../../authentication/hooks/userDataContext";
 
 //Imports de la función para poder guardar los datos en firebase
-import { handleUpdateUser } from "../../firebase/functions/functionsFirebase";
+import { handleUpdateUser } from "../../firebase/functions/functionsAuthFirebase";
 
 //Imports de componentes
 import { EditableInput } from "./components/EditableInput";
