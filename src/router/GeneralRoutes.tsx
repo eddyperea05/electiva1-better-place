@@ -35,7 +35,7 @@ export const GeneralRoutes = () => {
         <Route path="/propietario/:id" element={<PropertyDetailPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
