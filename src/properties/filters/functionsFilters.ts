@@ -1,15 +1,18 @@
 //import de tipos
-import type { FilterType } from "../context/types/PropertiesContextTypes";
+import type { Filter } from "../context/types/PropertiesContextTypes";
 import type { PropiedadInterface } from "../types/propertyType";
 
+const getTime = (date: any) =>
+  date instanceof Date ? date.getTime() : date.toDate().getTime();
+
 /* función para aplicar los filtros */
-export const filters = (filter: FilterType, properties: any) => {
+export const filters = (filter: Filter, properties: any) => {
   let result = [...properties];
 
   // filtro por tipo de propiedad
   if (filter?.typeProperties && filter.typeProperties.length > 0) {
     result = result.filter((property: PropiedadInterface) =>
-      filter.typeProperties!.includes(property.tipoPropiedad)
+      filter.typeProperties!.includes(property.typeProperty)
     );
 
     //Hacemos que el string sea vacio para que no intervenga con el fastFilter
@@ -23,29 +26,29 @@ export const filters = (filter: FilterType, properties: any) => {
     el cual tiene el valor en español y es necesario que este en español */
     const { habitaciones, baños, parqueaderos } = filter.amountStuffs;
 
-    result = result.filter((property: any) => {
+    result = result.filter((property: PropiedadInterface) => {
       /* En las 3 variables podemos almacenar la cantidad que se van a usar y devolverlo para que
       se filtre */
       const matchRooms =
         habitaciones === undefined
           ? true
           : habitaciones === "5+"
-          ? property.habitaciones >= 5
-          : property.habitaciones === habitaciones;
+          ? property.rooms >= 5
+          : property.rooms === habitaciones;
 
       const matchBaths =
         baños === undefined
           ? true
           : baños === "5+"
-          ? property.baños >= 5
-          : property.baños === baños;
+          ? property.baths >= 5
+          : property.baths === baños;
 
       const matchParkingLot =
         parqueaderos === undefined
           ? true
           : parqueaderos === "5+"
-          ? property.parqueaderos >= 5
-          : property.parqueaderos === parqueaderos;
+          ? property.parkingLots >= 5
+          : property.parkingLots === parqueaderos;
 
       //Hacemos que el string sea vacio para que no intervenga con el fastFilter
       filter.sortBy = "";
@@ -62,7 +65,7 @@ export const filters = (filter: FilterType, properties: any) => {
 
     //Filtramos el precio por sus rangos
     result = result.filter((property: PropiedadInterface) => {
-      const precio = property.precio;
+      const precio = property.price;
 
       const matchMin = min !== undefined ? precio >= min : true;
       const matchMax = max !== undefined ? precio <= max : true;
@@ -82,7 +85,7 @@ export const filters = (filter: FilterType, properties: any) => {
 
     //Filtramos los metros por sus rangos
     result = result.filter((property: PropiedadInterface) => {
-      const metres = property.metrosCuadrados;
+      const metres = property.metres;
 
       const matchMin = min !== undefined ? metres >= min : true;
       const matchMax = max !== undefined ? metres <= max : true;
@@ -97,49 +100,39 @@ export const filters = (filter: FilterType, properties: any) => {
 
   /* filtro para los precios de los más caros a los más baratos */
   if (filter.sortBy === "mayor precio") {
-    const newOrder = [...properties].sort((a, b) => b.precio - a.precio);
+    const newOrder = [...properties].sort((a, b) => b.price - a.price);
     return newOrder;
   }
 
   /* filtro para los precios más baratos a los más caros */
   if (filter.sortBy === "menor precio") {
-    const newOrder = [...properties].sort((a, b) => a.precio - b.precio);
+    const newOrder = [...properties].sort((a, b) => a.price - b.price);
     return newOrder;
   }
 
   /* filtros de las propiedades más recientes a las más antiguas */
   if (filter.sortBy === "más recientes") {
     return [...properties].sort((a, b) => {
-      return (
-        new Date(b.fechaPublicacion).getTime() -
-        new Date(a.fechaPublicacion).getTime()
-      );
+      return getTime(b.publicationDate) - getTime(a.publicationDate);
     });
   }
 
   /* filtro de las propiedades menos recientes a las más recientes */
   if (filter.sortBy === "menos recientes") {
     return [...properties].sort((a, b) => {
-      return (
-        new Date(a.fechaPublicacion).getTime() -
-        new Date(b.fechaPublicacion).getTime()
-      );
+      return getTime(a.publicationDate) - getTime(b.publicationDate);
     });
   }
 
   /* filtro de las propiedades con más habitaciones a las que tienen menos habitaciones */
   if (filter.sortBy === "más habitaciones") {
-    const newOrder = [...properties].sort(
-      (a, b) => b.habitaciones - a.habitaciones
-    );
+    const newOrder = [...properties].sort((a, b) => b.rooms - a.rooms);
     return newOrder;
   }
 
   /* filtro de las propiedades con menos habitaciones a las que tienen más habitaciones */
   if (filter.sortBy === "menos habitaciones") {
-    const newOrder = [...properties].sort(
-      (a, b) => a.habitaciones - b.habitaciones
-    );
+    const newOrder = [...properties].sort((a, b) => a.rooms - b.rooms);
     return newOrder;
   }
 
