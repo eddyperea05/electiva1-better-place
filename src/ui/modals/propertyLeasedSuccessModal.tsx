@@ -3,16 +3,40 @@ import { useState } from "react";
 //import icons
 import { IoClose } from "react-icons/io5";
 
+//Import firebase function
+import { leasePropertyByCode } from "../../firebase/functions/functionsPropertiesFirebase";
+
+//Import del contexto de la propiedad
+import { useDetailContext } from "../../detailProperty/hooks/useDataContext";
+
 export const PropertyLeasedSuccessModal = () => {
 
-  //Tener en cuenta que hay un bug por la solución machetera que hizo Andres Berugo en el DetailProperty
+  const { data } = useDetailContext();
+
+  console.log(data)
 
   //Hook para abrir el modal
   const [isOpenModal, setIsOpenModal] = useState<Boolean>(false);
+  const [leaseDate, setLeaseDate] = useState<Date | null>(null);
 
   //Función apra abrir y cerrar el modal
   const handleClickOpenAndCloseModal = () => {
     setIsOpenModal(!isOpenModal);
+    /* Hacemos un cambio en el estilo directo para que no se pueda hacer 
+    el scroll de las ventanas anteriores */
+    document.body.style.overflow = !isOpenModal ? "hidden" : "auto";
+  };
+
+  const handleLeaseProperty = async () => {
+    if (!leaseDate) return alert("Selecciona una fecha de arrendamiento");
+
+
+    try {
+      await leasePropertyByCode(data.code, leaseDate);
+      handleClickOpenAndCloseModal();
+    } catch (error) {
+      console.error("Sucedio un error al tratar de guardar: ", error);
+    }
   };
 
   return (
@@ -51,12 +75,16 @@ export const PropertyLeasedSuccessModal = () => {
             </div>
             <input
               className="w-full p-2 outline outline-gray-300 mb-3 rounded-sm"
-              type="number"
+              type="date"
+              onChange={(e) => setLeaseDate(new Date(e.target.value))}
               placeholder="Número de días..."
             />
-            
+
             {/* Botón para arrendar la propiedad */}
-            <button onClick={handleClickOpenAndCloseModal} className="capitalize bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] py-2 text-white font-bold rounded-sm cursor-pointer w-full">
+            <button
+              onClick={handleLeaseProperty}
+              className="capitalize bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] py-2 text-white font-bold rounded-sm cursor-pointer w-full"
+            >
               arrendar
             </button>
           </div>
