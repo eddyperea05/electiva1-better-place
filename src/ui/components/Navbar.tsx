@@ -13,11 +13,8 @@ import { userDataContext } from "../../authentication/hooks/userDataContext";
 
 //Imports de componentes
 import { PerfilForm } from "../forms/PerfilForm";
-import {
-  handleLogOutUser,
-} from "../../firebase/functions/functionsAuthFirebase";
+import { handleLogOutUser } from "../../firebase/functions/functionsAuthFirebase";
 export const Navbar = () => {
-
   const navigate = useNavigate();
 
   //Hook para saber el tamaño de la ventana
@@ -91,16 +88,16 @@ export const Navbar = () => {
                       to="/myProperties"
                       className="capitalize font-semibold text-white"
                     >
-                      mis arrendamientos
+                      mis propiedades
                     </NavLink>
                   </li>
                 )}
                 <li className="border-b border-white pb-1 mb-3 md:border-none md:p-0 md:mb-0">
                   <NavLink
-                    to="/myLessee"
+                    to="/MyLeases"
                     className="capitalize font-semibold text-white"
                   >
-                    mis propiedades
+                    mis arrendamientos
                   </NavLink>
                 </li>
                 <li className="border-b border-white pb-1 mb-3 md:border-none md:p-0 md:mb-0">
