@@ -1,12 +1,18 @@
 //imports de iconos
 import { useEffect, useState } from "react";
-import { FaCommentSlash } from "react-icons/fa";
+import { FaCommentSlash, FaStar } from "react-icons/fa";
 import { getCommentsByCodeHouse } from "../../firebase/functions/functionsPropertiesFirebase";
+import type { CommentsInterface } from "./types/CommentsType";
 
 export const CommentsComponent = ({ codeHouse }: { codeHouse: string }) => {
-  const [comments, setComments] = useState<any[]>([]);
+
+  //Hook para almacenar los comentarios
+  const [comments, setComments] = useState<CommentsInterface[]>([]);
+ 
+  //Hook para saber si esta cargando
   const [loading, setLoading] = useState(true);
 
+  //Hook para renderizar los comentarios cada vez que se agrega uno
   useEffect(() => {
     const loadComments = async () => {
       const data = await getCommentsByCodeHouse(codeHouse);
@@ -15,7 +21,7 @@ export const CommentsComponent = ({ codeHouse }: { codeHouse: string }) => {
     };
 
     loadComments();
-  }, [codeHouse]);
+  }, [comments]);
 
   if (loading) return <p className="text-gray-400">Cargando comentarios...</p>;
 
@@ -30,10 +36,26 @@ export const CommentsComponent = ({ codeHouse }: { codeHouse: string }) => {
               <div className="flex justify-between">
                 <div className="flex justify-center items-center mb-6">
                   <img
-                    className="outline outline-[#2A1EFA] p-1 rounded-full mr-3 w-15"
+                    className="outline outline-[#2A1EFA] p-1 rounded-full mr-3 w-15 h-15 object-cover"
                     src={comment.image}
                   />
-                  <h3 className="font-bold text-gray-500">{comment.userName}</h3>
+                  <div className="flex flex-col">
+                    <h3 className="font-bold text-gray-500">
+                      {comment.userName}
+                    </h3>
+                    <div className="flex mb-2">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <FaStar
+                          key={star}
+                          className={`text-sm ${
+                            star <= comment.rate
+                              ? "text-yellow-400"
+                              : "text-gray-300"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <h3 className="font-semibold text-gray-500">
                   {comment.publicationDate}
