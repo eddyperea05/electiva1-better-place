@@ -14,6 +14,7 @@ export const AddCommentComponent = ({ codeHouse }: { codeHouse: string }) => {
   //Hook para guardar el comentario
   const [commentText, setCommentText] = useState<string>("");
   const [rate, setRate] = useState<number | null>(null);
+  const [error, setError] = useState("");
   const [commentsAmount, setCommentsAmount] = useState<number>(0);
 
   //Hook para rendereizar los comentarios cada vez que se agrega uno nuevo
@@ -28,7 +29,15 @@ export const AddCommentComponent = ({ codeHouse }: { codeHouse: string }) => {
   //Función para guardar el comentario en firebase
   const handleAddComment = async () => {
     //Verificamos que el comentario no se envie vació;
-    if (!commentText.trim()) return;
+
+    if (rate < 1) {
+      setError("Debes seleccionar al menos una estrella.");
+      return;
+    }
+    if (commentText.trim() === "") {
+      setError("El comentario no puede estar vacío.");
+      return;
+    }
 
     //Añadimos el comentario
     await addCommentToProperty(codeHouse, userData.id, commentText, rate);
@@ -37,6 +46,7 @@ export const AddCommentComponent = ({ codeHouse }: { codeHouse: string }) => {
     const updatedCount = await getCommentCountByProperty(codeHouse);
     setCommentsAmount(updatedCount);
     setRate(null);
+    setError("");
     setCommentText("");
   };
 
@@ -69,14 +79,22 @@ export const AddCommentComponent = ({ codeHouse }: { codeHouse: string }) => {
         <textarea
           onChange={(e) => setCommentText(e.target.value)}
           value={commentText}
-          className="w-full h-40  outline-1 outline-gray-300 resize-none p-3 mb-4 rounded-sm"
+          className="w-full h-40  outline-1 outline-gray-300 resize-none p-3 rounded-sm"
           placeholder="Añade un comentario"
         />
+
+        {/* Imprimimos el error si no esta vació */}
+        {error && (
+          <div className="w-full flex items-center justify-center bg-red-900 my-2 py-2 rounded-sm">
+            <span className="text-red-400">{error}</span>
+          </div>
+        )}
+
         <div className="w-full flex justify-end">
           <button
             onClick={handleAddComment}
             disabled={rate === 0}
-            className="capitalize font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm py-3 mb-10 cursor-pointer md:w-40"
+            className="capitalize mt-2 font-bold w-full bg-linear-to-r from-[#2A1EFA] to-[#BA1EFA] text-white rounded-sm py-3 mb-10 cursor-pointer md:w-40"
           >
             comentar
           </button>
