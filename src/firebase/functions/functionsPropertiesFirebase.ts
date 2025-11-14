@@ -211,30 +211,63 @@ export const getCommentCountByProperty = async (codeHouse: string) => {
 };
 
 //Función para guardar la fecha de arendamiendo
-export const leasePropertyByCode = async (code: string, leaseDate: Date) => {
+export const leasePropertyByCode = async (code: string, uid: string) => {
   try {
-    console.log(code)
+    
+    //Obnemos la colección especifica en base a el codigo de la casa
     const propertyQuery = query(
       collection(db, "properties"),
       where("code", "==", code)
     );
 
+    //Traemos el documento que concinda
     const snapshot = await getDocs(propertyQuery);
 
-    if (snapshot.empty) {
-      throw new Error("No se encontró la propiedad con ese código.");
-    }
-
+    ///Guardamos la referencia del documento
     const propertyRef = snapshot.docs[0].ref;
 
+    //Actualizamos el documento
     await updateDoc(propertyRef, {
-      leaseDate,
       status: "arrendada",
+      leaser: uid
     });
 
-    return true;
+    return {
+      ok: true,
+      error: null,
+    };
   } catch (error) {
     console.error("Error al arrendar propiedad:", error);
-    throw error;
+    return {
+      ok: false,
+      error: "error al tratar de arrendar la propiedad",
+    };
+  }
+};
+
+export const cancelLease = async (codeHouse: string): Promise<void> => {
+  try {
+    const q = query(
+      collection(db, "properties"),
+      where("code", "==", codeHouse)
+    );
+
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty) {
+      console.warn("No se encontró esta propiedad.");
+      return;
+    }
+
+    const docRef = querySnapshot.docs[0].ref;
+
+    await updateDoc(docRef, {
+      Arrendador: "",
+      status: "libre",
+    });
+
+    console.log("Se canceló exitosamente");
+  } catch (error) {
+    console.error("Esta monda valió: ", error);
   }
 };
