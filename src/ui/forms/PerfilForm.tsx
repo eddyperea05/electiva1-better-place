@@ -20,14 +20,17 @@ export const PerfilForm = () => {
   //Hook para saber si se abrio el modal
   const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
 
-  //Hook para guardar la previsualisación de la imagen
+  //Hooks para el archivo de la imagen de foto de usuario
   const [previewImage, setPreviewImage] = useState<string>(userData.userImage);
-
-  //Hook para guardar el archivo que cargo el usuario
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  //Referencia del input para seleccionar el archivo
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  //Hooks para el archivo de la imagen de la cedula
+  const [previewCedula, setPreviewCedula] = useState<string>(
+    userData.cedulaImage
+  );
+  const [cedulaFile, setCedulaFile] = useState<File | null>(null);
+  const cedulaInputRef = useRef<HTMLInputElement>(null);
 
   //Hook para guardar los datos del usuario
   const [formData, setFormData] = useState({
@@ -39,15 +42,24 @@ export const PerfilForm = () => {
     numberPhone: userData.numberPhone,
   });
 
-  //Función para asignar la referencia
+  //Función para asignar la referencia de la imagen de usuario
   const handleClickOnImage = () => {
     fileInputRef.current?.click();
+  };
+
+  //Función para asignar la referencia de la imagen de la cedula
+  const handleClickOnCedula = () => {
+    cedulaInputRef.current?.click();
   };
 
   //Función para abrir y cerrar el modal
   const handleOpenAndCloseModal = () => {
     setIsModalOpen(!isModalOpen);
     setFormData(userData);
+
+    /* Hacemos un cambio en el estilo directo para que no se pueda hacer 
+    el scroll de las ventanas anteriores */
+    document.body.style.overflow = !isModalOpen ? "hidden" : "auto";
   };
 
   //Función para capturar el nombr y el valor del input
@@ -58,26 +70,54 @@ export const PerfilForm = () => {
   //Función para guardar la información del usuario
   const handleSaveUser = async () => {
     try {
+      //Guardamos los datos de las imagenes ya cargadas
       let imageUrl = userData.userImage;
+      let cedulaUrl = userData.cedulaImage;
 
-      // Si hay una nueva imagen seleccionada, subirla
+      // Si hay nuevas imagenes seleccionadas las subimos
       if (selectedFile) {
         imageUrl = await handleUploadImage(selectedFile);
       }
 
+      if (cedulaFile) {
+        cedulaUrl = await handleUploadImage(cedulaFile);
+      }
+
+      //Guardamos el objeto para cargarlo en el firebase
       const updatedData = {
         ...formData,
         userImage: imageUrl,
+        cedulaImage: cedulaUrl,
+        //Cambiamos el estado del propietario a true para que pueda subir propiedades
+        isOwner: true,
       };
 
+      //usamos la función de firebase para actualizar la data
       await handleUpdateUser(userData.id, updatedData);
+      //Actualizamos el estado global
       setUserData(updatedData);
+      //Cerramos e lmodal
       handleOpenAndCloseModal();
     } catch (error) {
-      console.error("Error al guardar cambios:", error);
+      //Error para el desarrollador
+      console.error("Error al tratar de los guardar cambios:", error);
     }
   };
 
+  //Función para guardar la imagen de la cedula
+  const handleCedulaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setCedulaFile(file);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreviewCedula(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  //Función para guardar la imagen del usuario
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -96,13 +136,16 @@ export const PerfilForm = () => {
         onClick={handleOpenAndCloseModal}
         className="capitalize cursor-pointer bg-[#2A1EFA] rounded-full p-1"
       >
-        <img src={userData.userImage} className="w-10 h-10 object-cover rounded-full" />
+        <img
+          src={userData.userImage}
+          className="w-10 h-10 object-cover rounded-full"
+        />
       </button>
 
       {isModalOpen && (
         <div
           onClick={handleOpenAndCloseModal}
-          className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50"
+          className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-40"
         >
           {/* opacidad para ael fonto */}
           <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -110,7 +153,7 @@ export const PerfilForm = () => {
           {/* Utilizo la función stopPropagation para que no se cierre la ventana */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-150 bg-white p-6 rounded shadow-lg z-50"
+            className="relative w-150 my-5 bg-white p-6 rounded shadow-lg z-50"
           >
             <div className="flex items-center justify-between mb-4">
               {/* Componente para cambiar la imagen de perfil */}
@@ -175,6 +218,24 @@ export const PerfilForm = () => {
                   name="numberPhone"
                   value={formData.numberPhone}
                   onChange={handleInputChange}
+                />
+                {/* input para la imagen de la cedula*/}
+                <label className="capitalize mb-2 text-gray-600">
+                  imagen de la cédula:
+                </label>
+                <div className="bg-[#2A1EFA] p-1 rounded-sm cursor-pointer w-full mb-4">
+                  <img
+                    src={previewCedula}
+                    onClick={handleClickOnCedula}
+                    className="w-full h-20 object-cover rounded-sm hover:opacity-70"
+                  />
+                </div>
+                <input
+                  className="hidden"
+                  type="file"
+                  accept="image/*"
+                  ref={cedulaInputRef}
+                  onChange={handleCedulaChange}
                 />
               </div>
               <button
