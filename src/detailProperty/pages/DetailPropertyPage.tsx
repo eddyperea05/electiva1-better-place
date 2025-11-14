@@ -14,6 +14,19 @@ import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../utils/formatPrice";
 import { getPropertyIcon } from "../../utils/getPropertyIcon";
 import { PropertyLeasedSuccessModal } from "../../ui/modals/propertyLeasedSuccessModal";
+import { FaCocktail, FaSwimmingPool, FaWifi } from "react-icons/fa";
+import { PiThermometerColdBold } from "react-icons/pi";
+import { TbWash } from "react-icons/tb";
+import { MdOutlineFastfood } from "react-icons/md";
+
+const typeOfBenefist = [
+  { benefist: "wifi", icon: FaWifi },
+  { benefist: "mini bar", icon: FaCocktail },
+  { benefist: "piscina", icon: FaSwimmingPool },
+  { benefist: "aire acondicionado", icon: PiThermometerColdBold },
+  { benefist: "lavadora", icon: TbWash },
+  { benefist: "cocina", icon: MdOutlineFastfood },
+];
 
 export const DetailPropertyPage = () => {
   //hook para abrir una nueva pestaña
@@ -23,7 +36,7 @@ export const DetailPropertyPage = () => {
   const { data } = useDetailContext();
 
   return (
-    <div className="flex flex-col md:flex-row mt-5">
+    <div className="flex flex-col justify-center md:flex-row mt-5">
       <div className="max-w-[1026px]">
         <button
           onClick={() => navigate("/properties")}
@@ -58,9 +71,24 @@ export const DetailPropertyPage = () => {
               <h2 className="capitalize text-[2rem] font-bold text-gray-700">
                 descripción
               </h2>
-              <p className="text-gray-500">
-                {data.descripcion}
-              </p>
+              <p className="text-gray-500">{data.description}</p>
+            </div>
+            <div className="flex flex-wrap gap-2 mb-5">
+              {data.benefits.map((b) => {
+                const matched = typeOfBenefist.find(
+                  (item) => item.benefist === b
+                );
+
+                return (
+                  <div
+                    key={b}
+                    className="flex items-center gap-2 capitalize outline-1 rounded-full px-3 py-2 border-emerald-300 text-emerald-700 bg-emerald-50 hover:bg-emerald-100"
+                  >
+                    {matched && <matched.icon className="text-emerald-500" />}
+                    <span>{b}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
           {/* tipo de propiedad */}
@@ -93,9 +121,7 @@ export const DetailPropertyPage = () => {
             <div className="flex justify-between items-center mb-3">
               <div className="flex justify-center items-center">
                 <FaBed className="mr-3 text-[#BA1EFA]" />
-                <h3 className="font-bold text-[#721EFA]">
-                  {data.rooms} hab.
-                </h3>
+                <h3 className="font-bold text-[#721EFA]">{data.rooms} hab.</h3>
               </div>
               <div className="flex justify-center items-center">
                 <FaBath className="mr-3 text-[#BA1EFA]" />
@@ -151,9 +177,7 @@ export const DetailPropertyPage = () => {
         <div className="flex justify-between items-center mb-5">
           <div className="flex justify-center items-center">
             <FaBed className="mr-3 text-[#BA1EFA]" />
-            <h3 className="font-bold text-[#721EFA]">
-              {data.rooms} hab.
-            </h3>
+            <h3 className="font-bold text-[#721EFA]">{data.rooms} hab.</h3>
           </div>
           <div className="flex justify-center items-center">
             <FaBath className="mr-3 text-[#BA1EFA]" />
