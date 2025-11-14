@@ -22,14 +22,14 @@ export const GeneralRoutes = () => {
         {/* Con esta ruta me aseguro de que si el propietario no es propietario 
         no pueda acceder a la ruta */}
         <Route
-          path="/myLessee"
+          path="/myProperties"
           element={
             <PrivatePolicityMyLessesRouter>
-              <MyLeasesPage />
+              <MyProperties />
             </PrivatePolicityMyLessesRouter>
           }
         />
-        <Route path="/myProperties" element={<MyProperties />} />
+        <Route path="/MyLeases" element={<MyLeasesPage/>} />
         <Route path="/detail" element={<DetailPropertyPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/propietario/:id" element={<PropertyDetailPage />} />
