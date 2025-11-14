@@ -88,7 +88,7 @@ export const Navbar = () => {
                 {userData.isOwner && (
                   <li className="border-b border-white pb-1 mb-3 md:border-none md:p-0 md:mb-0">
                     <NavLink
-                      to="/MyLeases"
+                      to="/myProperties"
                       className="capitalize font-semibold text-white"
                     >
                       mis arrendamientos
@@ -97,7 +97,7 @@ export const Navbar = () => {
                 )}
                 <li className="border-b border-white pb-1 mb-3 md:border-none md:p-0 md:mb-0">
                   <NavLink
-                    to="/myProperties"
+                    to="/myLessee"
                     className="capitalize font-semibold text-white"
                   >
                     mis propiedades
