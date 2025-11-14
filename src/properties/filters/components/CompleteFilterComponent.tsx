@@ -39,6 +39,9 @@ export const CompleteFilterComponent = () => {
   //Función para mostrar la el modal de los filtros
   const handleModal = () => {
     isModalOpen ? setIsModalOpen(false) : setIsModalOpen(true);
+    /* Hacemos un cambio en el estilo directo para que no se pueda hacer 
+    el scroll de las ventanas anteriores */
+    document.body.style.overflow = !isModalOpen ? "hidden" : "auto";
   };
 
   //Función para abrir los filtros completos
@@ -108,7 +111,7 @@ export const CompleteFilterComponent = () => {
       {/* Tenemos isModalOpen para la vista movil y width que lo traemos del customhook para la
       version de escritorio */}
       {(isModalOpen || width > 768) && (
-        <div className="bg-white fixed overflow-scroll top-0 right-0 bottom-0 left-0 md:static md:overflow-auto md:border md:border-gray-300 md:rounded-sm md:p-3 shadow-lg z-10">
+        <div className="z-10 bg-white fixed overflow-scroll top-0 right-0 bottom-0 left-0 md:static md:overflow-auto md:border md:border-gray-300 md:rounded-sm md:p-3 shadow-lg">
           <div className="flex flex-col md:mt-2">
             {/* boton para cerrar el modal en la vista movil */}
             <button
