@@ -1,21 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import propertiesJson from "../../../../json/propiedades.json";
 import { useDetailContext } from "../../../../detailProperty/hooks/useDataContext";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import type { PropiedadInterface } from "../../../types/propertyType";
+import { getProperties } from "../../../../firebase/functions/functionsPropertiesFirebase";
 
 export const FilterInpuComponent = () => {
-  //llamado al conexto del detalle
-  const { setData } = useDetailContext();
-
   //navigate para ir al detalle de la propiedad
   const navigate = useNavigate();
 
-  const [properties, setProperties] = useState(propertiesJson);
+  //llamado al conexto del detalle
+  const { setData } = useDetailContext();
+
+  //Hook para alamacenar las propiedades
+  const [properties, setProperties] = useState<PropiedadInterface[]>([]);
 
   //Hook para capturar la información del hook
   const [filterInputData, setFilterInputData] = useState<string>("");
   const [filteredCodes, setFilteredCodes] = useState<string[]>([]);
+
+  //Hook para tener los datos ya cargados en el array
+  useEffect(() => {
+    const fetchProperties = async () => {
+      const data = await getProperties();
+      setProperties(data);
+    };
+    fetchProperties();
+  }, []);
 
   //Funció para capturar el valor del input
   const handleChangeInputFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,9 +38,10 @@ export const FilterInpuComponent = () => {
       return;
     }
 
+    //Variable para filtrar los propiedades con coicidencia y maximo 5 propieaddes
     const matches = properties
-      .map((property) => property.codigoCasa) // ajusta si tu propiedad se llama diferente
-      .filter((code) => code.toLowerCase().includes(value.toLowerCase()))
+      .map((property: PropiedadInterface) => property.code)
+      .filter((code: string) => code.toLowerCase().includes(value.toLowerCase()))
       .slice(0, 5);
 
     setFilteredCodes(matches);
@@ -38,7 +50,7 @@ export const FilterInpuComponent = () => {
   //Función para enviar los datos al detalle de las propiedades
   const handleClickDetail = () => {
     const dataProperty = properties.filter(
-      (property) => property.codigoCasa === filterInputData
+      (property: PropiedadInterface) => property.code === filterInputData
     );
 
     setData({ ...dataProperty[0] });
@@ -47,7 +59,7 @@ export const FilterInpuComponent = () => {
 
   return (
     <>
-      <div className="display flex flex-col mb-4">
+      <div className="display relative flex flex-col mb-4">
         <input
           onChange={handleChangeInputFilter}
           name="filterInput"
@@ -64,7 +76,7 @@ export const FilterInpuComponent = () => {
         </button>
       </div>
       {filteredCodes.length > 0 && (
-        <ul className="bg-white border border-gray-300 rounded-sm shadow-md max-h-60 overflow-y-auto">
+        <ul className="absolute w-64 bg-white border border-gray-300 rounded-sm shadow-md max-h-60 overflow-y-auto">
           {filteredCodes.map((code, index) => (
             <li
               key={index}
