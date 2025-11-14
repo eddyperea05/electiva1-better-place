@@ -6,6 +6,7 @@ export interface userData {
   email: string | null;
   numberPhone: string;
   userImage: string;
+  cedulaImage: string;
   isOwner: boolean;
 }
 
