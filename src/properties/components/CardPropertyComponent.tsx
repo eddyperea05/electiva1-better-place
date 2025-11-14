@@ -33,7 +33,7 @@ export const CardPropertyComponent = ({
   return (
     <div
       onClick={handleClickDetail}
-      className="group cursor-pointer bg-white rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-300"
+      className="group cursor-pointer my-3 bg-white rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-300 md:my-0"
     >
       <div className="relative h-56 overflow-hidden">
         <img
@@ -46,7 +46,7 @@ export const CardPropertyComponent = ({
           <span className="capitalize">{property.typeProperty}</span>
         </div>
         <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white rounded-full text-sm font-semibold">
-          Arrendada
+          {property.status}
         </div>
       </div>
 
