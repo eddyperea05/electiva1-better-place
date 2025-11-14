@@ -11,14 +11,22 @@ import { useDataPropertiesContext } from "../filters/hooks/useDataPropertiesCont
 import { filters } from "../filters/functionsFilters";
 import { PaginationComponent } from "../components/PaginationComponent";
 import { getProperties } from "../../firebase/functions/functionsPropertiesFirebase";
+import type { PropiedadInterface } from "../types/propertyType";
 
 export const PropertiesPage = () => {
+  //contexto para saber que filtro se elijio
   const { typeFastFilter } = useDataPropertiesContext();
+
+  //Hook para almacenar las propiedades alamcenadas
   const [filteredProperties, setFilteredProperties] = useState<any>([]);
 
-  const [page, setPage] = useState(0);
+  //Hook para saber el número de la página
+  const [page, setPage] = useState<number>(0);
+
+  //Cantida de propiedades que se van a mostrar por página
   const pageSize = 7;
 
+  //Hook para reenderizar las propiedades almacenadas
   useEffect(() => {
     const fetchProperties = async () => {
       const data = await getProperties();
@@ -27,10 +35,10 @@ export const PropertiesPage = () => {
     fetchProperties();
   }, []);
 
-  /* hook para reenderizar los filtros cada vez que se le da click a un filtro */
+  //Hook para reenderizar los filtros cada vez que se le da click a un filtro
   useEffect(() => {
     const applyFilters = async () => {
-      const allProperties = await getProperties(); // o guarda esto en otro estado si no quieres llamar a Firebase cada vez
+      const allProperties = await getProperties();
       const propertiesFilter = filters(typeFastFilter, allProperties);
       setFilteredProperties(propertiesFilter);
       setPage(0);
@@ -47,22 +55,19 @@ export const PropertiesPage = () => {
   return (
     <div className="md:flex">
       {/* contenedor filtros */}
-      <section>
+      <section className="mt-5 md:mt-0">
         <Filters />
       </section>
-      <section className="flex flex-col">
+      <section className="flex flex-col justify-center w-full">
         {/* contenedor por cada tarjeta */}
-        <div className="flex flex-col justify-center items-center md:flex-row md:flex-wrap md:gap-10 mx-5 md:my-6">
+        <div className="flex flex-col justify-center items-center mt-5 md:flex-row md:flex-wrap md:gap-10 mx-5">
           {currentProperties.length !== 0 ? (
-            currentProperties.map((property: any) => (
+            currentProperties.map((property: PropiedadInterface) => (
               /* componente de la tarjeta de propiedad */
-              <CardPropertyComponent
-                key={property.code}
-                property={property}
-              />
+              <CardPropertyComponent key={property.code} property={property} />
             ))
           ) : (
-            <span>No hay propiedades</span>
+            <span className="capitalize text-3xl text-[#2A1EFA] font-black">no hay propiedades</span>
           )}
         </div>
         <PaginationComponent
