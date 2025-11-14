@@ -19,8 +19,10 @@ export const GeneralRoutes = () => {
       <Navbar />
       <Routes>
         <Route path="/properties" element={<PropertiesPage />} />
+        {/* Con esta ruta me aseguro de que si el propietario no es propietario 
+        no pueda acceder a la ruta */}
         <Route
-          path="/myLeases"
+          path="/myLessee"
           element={
             <PrivatePolicityMyLessesRouter>
               <MyLeasesPage />
@@ -33,7 +35,7 @@ export const GeneralRoutes = () => {
         <Route path="/propietario/:id" element={<PropertyDetailPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
