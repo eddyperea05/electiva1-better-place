@@ -64,10 +64,13 @@ export const PropertiesPage = () => {
           {currentProperties.length !== 0 ? (
             currentProperties.map((property: PropiedadInterface) => (
               /* componente de la tarjeta de propiedad */
+
               <CardPropertyComponent key={property.code} property={property} />
             ))
           ) : (
-            <span className="capitalize text-3xl text-[#2A1EFA] font-black">no hay propiedades</span>
+            <span className="capitalize text-3xl text-[#2A1EFA] font-black">
+              no hay propiedades
+            </span>
           )}
         </div>
         <PaginationComponent
