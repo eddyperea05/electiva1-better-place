@@ -15,13 +15,14 @@ export interface PropiedadInterface {
   image: string;
   price: number;
   rate: number;
+  rateCount: number
   metres: number;
   rooms: number;
   baths: number;
   parkingLots: number;
   publicationDate: Date;
   address: string;
-  descripcion: string;
+  description: string;
   benefits: string[];
   lessee: lessee;
   status: status;
