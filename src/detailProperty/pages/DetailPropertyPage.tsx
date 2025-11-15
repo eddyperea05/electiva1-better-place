@@ -71,7 +71,7 @@ export const DetailPropertyPage = () => {
               <h2 className="capitalize text-[2rem] font-bold text-gray-700">
                 descripción
               </h2>
-              <p className="text-gray-500">{data.description}</p>
+              <p className="text-gray-500 break-words whitespace-normal">{data.description}</p>
             </div>
             <div className="flex flex-wrap gap-2 mb-5">
               {data.benefits.map((b) => {

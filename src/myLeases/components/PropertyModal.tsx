@@ -13,13 +13,18 @@ import {
 import { getPropertyIcon } from "../../utils/getPropertyIcon";
 import { formatPrice } from "../../utils/formatPrice";
 import { cancelLease } from "../../firebase/functions/functionsPropertiesFirebase";
- 
+import { calculateDateCancel } from "../../utils/calculateDateCancel";
+import { useState } from "react";
+
 export const PropertyModal = ({ propiedad, onClose }) => {
   async function handlerCancelarArrendamiento(id) {
-    console.log("Monda", id);
     await cancelLease(id);
   }
- 
+
+  const [modalPagoOpen, setModalPagoOpen] = useState(false);
+  const [diasArrendada, setDiasArrendada] = useState(0);
+  const [totalPagar, setTotalPagar] = useState(0);
+
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-6 overflow-y-auto"
@@ -35,7 +40,7 @@ export const PropertyModal = ({ propiedad, onClose }) => {
         >
           <X className="w-6 h-6" />
         </button>
- 
+
         <div className="relative h-96">
           <img
             src={propiedad.image}
@@ -78,7 +83,7 @@ export const PropertyModal = ({ propiedad, onClose }) => {
               <p className="text-gray-500">por mes</p>
             </div>
           </div>
- 
+
           <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-6 mb-8">
             <h3 className="text-xl font-bold mb-4 text-black">
               Información del Arrendatario (Dueño de la propiedad)
@@ -137,14 +142,14 @@ export const PropertyModal = ({ propiedad, onClose }) => {
               </div>
             </div>
           </div>
- 
+
           <div className="mb-6">
             <h3 className="text-xl font-bold mb-3 text-black">Descripción</h3>
             <p className="text-gray-700 leading-relaxed">
               {propiedad.description}
             </p>
           </div>
- 
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div className="text-center p-4 bg-gray-50 rounded-xl">
               <Bed
@@ -183,7 +188,7 @@ export const PropertyModal = ({ propiedad, onClose }) => {
               <p className="text-sm text-gray-600">m²</p>
             </div>
           </div>
- 
+
           <div className="flex items-center gap-2 mb-6">
             <Star
               className="w-6 h-6 fill-current"
@@ -196,7 +201,7 @@ export const PropertyModal = ({ propiedad, onClose }) => {
               ({propiedad.rateCount} comentarios)
             </span>
           </div>
- 
+
           <div>
             <h3 className="text-xl font-bold mb-4 text-black">Amenidades</h3>
             <div className="grid grid-cols-2 gap-3">
@@ -222,17 +227,53 @@ export const PropertyModal = ({ propiedad, onClose }) => {
                   Cerrar
                 </button>
                 <button
-                onClick={() => {
-                  if (window.confirm('¿Estás seguro de que deseas cancelar este arrendamiento?')) {
-                    handlerCancelarArrendamiento(propiedad.code);
-                    onClose();
-                  }
-                }}
-                className="flex-1 py-4 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-2xl transition-all duration-300 hover:shadow-lg">
+                  onClick={() => {
+                    const dias = calculateDateCancel(propiedad.TimeLease);
+                    const total = dias * (propiedad.price / 30); // precio diario
+                    setDiasArrendada(dias);
+                    setTotalPagar(total);
+                    setModalPagoOpen(true);
+                  }}
+                  className="flex-1 py-4 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-2xl transition-all duration-300 hover:shadow-lg"
+                >
                   Cancelar Arrendamiento
                 </button>
               </div>
             </div>
+
+            {modalPagoOpen && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-6">
+                <div className="bg-white p-6 rounded-xl shadow-lg max-w-md w-full">
+                  <h2 className="text-xl font-bold mb-4 text-center text-black">
+                    Resumen de Cancelación
+                  </h2>
+                  <p className="text-gray-700 mb-2">
+                    Días arrendada: <strong>{diasArrendada}</strong>
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Total a pagar: <strong>{formatPrice(totalPagar)}</strong>
+                  </p>
+                  <div className="flex justify-end gap-4 mt-4">
+                    <button
+                      onClick={() => setModalPagoOpen(false)}
+                      className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400"
+                    >
+                      Volver
+                    </button>
+                    <button
+                      onClick={async () => {
+                        await handlerCancelarArrendamiento(propiedad.code);
+                        setModalPagoOpen(false);
+                        onClose();
+                      }}
+                      className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+                    >
+                      Confirmar Cancelación
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

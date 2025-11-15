@@ -30,18 +30,22 @@ export const handleDeafaultImage = async () => {
 
 //Función para guardar imagenes que carga el usuario
 export const handleUploadImage = async (file: File) => {
-  const formData = new FormData();
-  formData.append("file", file);
-  formData.append("upload_preset", upload_preset);
-
-  const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
-    {
-      method: "POST",
-      body: formData,
-    }
-  );
-
-  const data = await res.json();
-  return data.secure_url;
+  try {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", upload_preset);
+  
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+  
+    const data = await res.json();
+    return data.secure_url;
+  } catch (error) {
+    console.error("Error al tratar de subir la imagen: ", error)
+  }
 };

@@ -7,11 +7,11 @@ import { PropertiesPage } from "../properties/pages/PropertiesPage";
 import { AboutUsPage } from "../aboutUS/page/AboutUsPage";
 import { DetailPropertyPage } from "../detailProperty/pages/DetailPropertyPage";
 import { MyLeasesPage } from "../myLeases/pages/MyLeasesPage";
-import { MyProperties } from "../ownerships/pages/MyProperties";
-import { PropertyDetailPage } from "../ownerships/pages/PropertyDetailPage";
+import { MyPropertiesPage } from "../ownerships/pages/MyPropertiesPage";
 import { NotFound } from "../ui/components/NotFound";
 import { Footer } from "../ui/components/Footer";
 import { PrivatePolicityMyLessesRouter } from "./PrivatePolicityMyLessesRouter";
+import { AddPropertiesPage } from "../ownerships/pages/AddPropertiesPage";
 
 export const GeneralRoutes = () => {
   return (
@@ -25,14 +25,21 @@ export const GeneralRoutes = () => {
           path="/myProperties"
           element={
             <PrivatePolicityMyLessesRouter>
-              <MyProperties />
+              <MyPropertiesPage />
             </PrivatePolicityMyLessesRouter>
           }
         />
-        <Route path="/MyLeases" element={<MyLeasesPage/>} />
+        <Route
+          path="/addProperty"
+          element={
+            <PrivatePolicityMyLessesRouter>
+              <AddPropertiesPage />
+            </PrivatePolicityMyLessesRouter>
+          }
+        />
+        <Route path="/MyLeases" element={<MyLeasesPage />} />
         <Route path="/detail" element={<DetailPropertyPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
-        <Route path="/propietario/:id" element={<PropertyDetailPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

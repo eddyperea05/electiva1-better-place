@@ -3,22 +3,27 @@ import { useEffect, useState } from "react";
 //import componentes
 import { CardPropertyComponent } from "../components/CardPropertyComponent";
 import { Filters } from "../filters/Filters";
+import { PaginationComponent } from "../components/PaginationComponent";
 
 //import del contexto de los filtros rápidos
 import { useDataPropertiesContext } from "../filters/hooks/useDataPropertiesContext";
 
 //import de la función de los filtros
 import { filters } from "../filters/functionsFilters";
-import { PaginationComponent } from "../components/PaginationComponent";
+
+//import de funciones de firebase
 import { getProperties } from "../../firebase/functions/functionsPropertiesFirebase";
 import type { PropiedadInterface } from "../types/propertyType";
+
+//import de tipos
+
 
 export const PropertiesPage = () => {
   //contexto para saber que filtro se elijio
   const { typeFastFilter } = useDataPropertiesContext();
 
   //Hook para almacenar las propiedades alamcenadas
-  const [filteredProperties, setFilteredProperties] = useState<any>([]);
+  const [filteredProperties, setFilteredProperties] = useState<PropiedadInterface[]>([]);
 
   //Hook para saber el número de la página
   const [page, setPage] = useState<number>(0);

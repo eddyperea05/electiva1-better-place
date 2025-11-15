@@ -1,39 +1,65 @@
-import { Link } from "react-router-dom";
-import type { Property } from "../../data/properties";
+import type { PropiedadInterface } from "../../properties/types/propertyType";
 
-type Props = { data: Property };
-
-export const PropertyCard = ({ data }: Props) => {
-  const cover = data.images[0];
-
+export const PropertyCard = ({
+  property,
+  index,
+  onDeleteRequest,
+  onEditRequest,
+}: {
+  property: PropiedadInterface;
+  index: number;
+  onDeleteRequest: () => void;
+  onEditRequest: () => void;
+}) => {
   return (
-    <Link
-      to={`/propietario/${data.id}`}
-      className="snap-start shrink-0 w-[280px] sm:w-[320px] rounded-2xl border border-black/10 overflow-hidden bg-white hover:shadow-lg transition"
-    >
-      <div className="aspect-4/3 overflow-hidden">
-        <img
-          src={cover}
-          alt={data.titulo}
-          className="w-full h-full object-cover hover:scale-[1.03] transition"
-          loading="lazy"
-        />
-      </div>
-
-      <div className="p-4">
-        <h3 className="text-lg font-extrabold line-clamp-1">{data.titulo}</h3>
-        <p className="text-sm text-neutral-600 line-clamp-1">{data.ubicacion}</p>
-
-        <div className="mt-3 grid grid-cols-3 gap-2 text-xs text-neutral-700">
-          <div className="rounded-xl bg-neutral-100 px-2 py-1 text-center">{data.habitaciones} hab</div>
-          <div className="rounded-xl bg-neutral-100 px-2 py-1 text-center">{data.banos} baños</div>
-          <div className="rounded-xl bg-neutral-100 px-2 py-1 text-center">{data.metros} m²</div>
+    <div className="flex mt-4 justify-between items-center outline-1 outline-black rounded-sm p-2">
+      <span className="mr-2 font-bold">{index + 1}</span>
+      <div className="flex items-center w-full">
+        <button className="cursor-pointer">
+          <img
+            src={property.image}
+            className="w-15 h-15 object-cover rounded-md"
+          />
+        </button>
+        <div className="flex justify-around w-full">
+          <div className="flex flex-col items-center ">
+            <h2 className="capitalize font-bold">código</h2>
+            <span className="uppercase">{property.code}</span>
+          </div>
+          <div className="flex flex-col items-center ">
+            <h2 className="capitalize font-bold">nombre</h2>
+            <span className="capitalize">{property.name}</span>
+          </div>
+          <div className="flex flex-col items-center ">
+            <h2 className="capitalize font-bold">propietario</h2>
+            <span className="capitalize">{property.lessee.name}</span>
+          </div>
+          <div className="flex flex-col items-center ">
+            <h2 className="capitalize font-bold">dirección</h2>
+            <span className="capitalize">{property.address}</span>
+          </div>
+          <div className="flex flex-col items-center ">
+            <h2 className="capitalize font-bold">estado</h2>
+            <span className="capitalize">{property.status}</span>
+          </div>
         </div>
-
-        <div className="mt-3 font-bold bg-linear-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
-          {data.precio}
+      </div>
+      <div>
+        <div className="flex">
+          <button
+            onClick={onEditRequest}
+            className="cursor-pointer mr-3 outline-1 outline-yellow-700 bg-yellow-300 text-yellow-700 py-2 px-3 rounded-sm"
+          >
+            Editar
+          </button>
+          <button
+            onClick={onDeleteRequest}
+            className="cursor-pointer mr-3 outline-1 outline-red-500 bg-red-300 text-red-500 py-2 px-3 rounded-sm"
+          >
+            Eliminar
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };

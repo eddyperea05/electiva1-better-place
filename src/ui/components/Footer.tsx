@@ -73,48 +73,24 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-3 text-white">Suscríbete</h4>
-            <p className="text-sm mb-3 text-white">
-              Recibe novedades y oportunidades destacadas.
-            </p>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Suscripción enviada ✅");
-              }}
-              className="flex gap-2"
-            >
-              <input
-                type="email"
-                required
-                placeholder="tu@email.com"
-                className="w-full rounded-xl border bg-white px-3 h-11 outline-none"
-              />
-              <button type="submit" className="btn-gradient h-11">
-                Enviar
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-t border-black/10">
-        <div className="container py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-neutral-600">
-          <p className="text-white mt-3">
-            © {new Date().getFullYear()} Better Place — Todos los derechos
-            reservados.
-          </p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:underline text-white">
-              Privacidad
-            </a>
-            <a href="#" className="hover:underline text-white">
-              Términos
-            </a>
-            <a href="#" className="hover:underline text-white">
-              Cookies
-            </a>
+          <div className="border-t border-black/10">
+            <div className="container py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-neutral-600">
+              <p className="text-white mt-3">
+                © {new Date().getFullYear()} Better Place — Todos los derechos
+                reservados.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="hover:underline text-white">
+                  Privacidad
+                </a>
+                <a href="#" className="hover:underline text-white">
+                  Términos
+                </a>
+                <a href="#" className="hover:underline text-white">
+                  Cookies
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

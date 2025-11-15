@@ -10,7 +10,7 @@ export const CommentsComponent = ({ codeHouse }: { codeHouse: string }) => {
   const [comments, setComments] = useState<CommentsInterface[]>([]);
  
   //Hook para saber si esta cargando
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   //Hook para renderizar los comentarios cada vez que se agrega uno
   useEffect(() => {

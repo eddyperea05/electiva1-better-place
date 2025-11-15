@@ -30,7 +30,7 @@ export const AddCommentComponent = ({ codeHouse }: { codeHouse: string }) => {
   const handleAddComment = async () => {
     //Verificamos que el comentario no se envie vació;
 
-    if (rate < 1) {
+    if (rate === null || rate < 1) {
       setError("Debes seleccionar al menos una estrella.");
       return;
     }

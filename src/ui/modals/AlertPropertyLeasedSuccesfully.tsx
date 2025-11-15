@@ -1,4 +1,5 @@
-export const PropertyLeasedSuccessfully = () => {
+//Este componente es solo para mostrar una alerta de que se arrendo con exito
+export const AlertPropertyLeasedSuccesfully = () => {
   return (
     <div>
       <div

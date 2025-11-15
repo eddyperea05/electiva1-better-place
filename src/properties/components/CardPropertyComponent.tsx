@@ -7,11 +7,16 @@ import { useNavigate } from "react-router-dom";
 //import del contexto del detalle
 import { useDetailContext } from "../../detailProperty/hooks/useDataContext";
 
-//import de los tipos
 
+//import para obtener lso iconos
 import { getPropertyIcon } from "../../utils/getPropertyIcon";
+
+//import para el formato del precio
 import { formatPrice } from "../../utils/formatPrice";
+
+//import de los tipos
 import type { PropiedadInterface } from "../types/propertyType";
+
 
 export const CardPropertyComponent = ({
   property,
@@ -65,11 +70,14 @@ export const CardPropertyComponent = ({
 
         <div className="mb-4 pb-4 border-b border-gray-100">
           <p className="text-xs text-gray-500 mb-2">Arrendatario Actual</p>
-          <div className="flex items-center gap-2">
-            <User className="w-4 h-4" style={{ color: "#2A1EFA" }} />
-            <span className="text-sm font-semibold text-black">
-              {property.lessee.name}
-            </span>
+          <div className="flex justify-between">
+            <div className="flex items-center gap-2">
+              <User className="w-4 h-4" style={{ color: "#2A1EFA" }} />
+              <span className="text-sm font-semibold text-black">
+                {property.lessee.name}
+              </span>
+            </div>
+              <span>{property.metres} m²</span>
           </div>
         </div>
 
@@ -85,7 +93,9 @@ export const CardPropertyComponent = ({
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Car className="w-4 h-4 text-[#BA1EFA]" />
-            <span className="text-sm text-[#721EFA]">{property.parkingLots}</span>
+            <span className="text-sm text-[#721EFA]">
+              {property.parkingLots}
+            </span>
           </div>
         </div>
 
@@ -101,9 +111,7 @@ export const CardPropertyComponent = ({
               className="w-5 h-5 fill-current"
               style={{ color: "#2A1EFA" }}
             />
-            <span className="font-bold text-black">
-              {property.rate}
-            </span>
+            <span className="font-bold text-black">{property.rate}</span>
           </div>
         </div>
       </div>

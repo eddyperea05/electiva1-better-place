@@ -12,7 +12,7 @@ export const MyLeasesPage = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       const data = await getProperties();
-      setpropertiesUser(data?.filter((x) => x.Arrendador == userData.id));
+      setpropertiesUser(data?.filter((x) => x.leaser == userData.id));
     };
     fetchProperties();
    

@@ -1,6 +1,7 @@
-import type { ReactNode } from "react";
+import {type ReactNode } from "react";
 import { userDataContext } from "../authentication/hooks/userDataContext";
 import { Navigate } from "react-router-dom";
+
 
 export const PrivatePolicityMyLessesRouter = ({
   children,
@@ -12,5 +13,5 @@ export const PrivatePolicityMyLessesRouter = ({
 
   const { userData } = userDataContext();
 
-  return userData.isOwner ? children : <Navigate to="/properties"/>;
+  return userData.isOwner ? children : <Navigate to="/properties" />;
 };

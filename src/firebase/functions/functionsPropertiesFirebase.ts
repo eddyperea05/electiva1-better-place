@@ -3,12 +3,17 @@ import { db } from "../firebase";
 
 //Import de funciones de firebase
 import {
+  addDoc,
   arrayUnion,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
+  limit,
+  orderBy,
   query,
+  serverTimestamp,
   setDoc,
   Timestamp,
   updateDoc,
@@ -18,11 +23,11 @@ import {
 //Import de utilidades
 import { formatDateFirebase } from "../../utils/formatDateFirebase";
 
-//Import de tipos
-import type { UserCache } from "./types/firebaseFunctionsTypes";
+//import de tipos
+import type { PropiedadInterface } from "../../properties/types/propertyType";
 
 //Función para obtener las propiedades de firebase
-export const getProperties = async () => {
+export const getProperties = async (): Promise<PropiedadInterface[]> => {
   try {
     //Accedemos a los documentos
     const querySnapshot = await getDocs(collection(db, "properties"));
@@ -31,12 +36,13 @@ export const getProperties = async () => {
     const data = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
-    }));
+    })) as PropiedadInterface[];
 
     return data;
   } catch (error) {
     //Error para el desarrollador
     console.error("Error al obtener las propiedades:", error);
+    return [];
   }
 };
 
@@ -55,6 +61,14 @@ export const getCommentsByCodeHouse = async (codeHouse: string) => {
   //traemos el documento que concinda
   const querySnapshot = await getDocs(queryFirebase);
 
+  //Defininmos un tipo especial para UserCache
+  type UserCache = {
+    [uid: string]: {
+      userName: string;
+      userImage: string;
+    };
+  };
+
   //Iteramos los documentos que hay en la colección
   for (const docSnap of querySnapshot.docs) {
     //Extraemos comments de los docymentos
@@ -63,7 +77,7 @@ export const getCommentsByCodeHouse = async (codeHouse: string) => {
     //Iteramos en cada uno de los comentarios
     for (const commentObj of comments) {
       //Almacenamos el id de cada comentario para buscar los datos del usuario
-      const id = commentObj.uid;
+      const id: string = commentObj.uid;
 
       // verifocamos que si haya algun usuario para consultar la coleción de los usauruios
       if (!userCache[id]) {
@@ -71,7 +85,13 @@ export const getCommentsByCodeHouse = async (codeHouse: string) => {
         const userSnap = await getDoc(userRef);
 
         //almacenamos los datos del usaurio encontrado
-        userCache[id] = userSnap.data();
+        const userData = userSnap.data();
+        if (userData) {
+          userCache[id] = {
+            userName: userData.userName,
+            userImage: userData.userImage,
+          };
+        }
       }
 
       //Con este objeto organizamos los comentarios porque el otro es un string
@@ -210,59 +230,189 @@ export const getCommentCountByProperty = async (codeHouse: string) => {
   }
 };
 
-//Función para guardar la fecha de arendamiendo
+//Función para guardar el arrendamiento
 export const leasePropertyByCode = async (code: string, uid: string) => {
   try {
-    
-    //Obnemos la colección especifica en base a el codigo de la casa
+    //Buscamos la colección por el codigo
     const propertyQuery = query(
       collection(db, "properties"),
       where("code", "==", code)
     );
 
-    //Traemos el documento que concinda
+    //Obnemos el documento
     const snapshot = await getDocs(propertyQuery);
 
-    ///Guardamos la referencia del documento
-    const propertyRef = snapshot.docs[0].ref;
+    //Guardamos los datos que hay
+    const propertyDoc = snapshot.docs[0];
 
-    //Actualizamos el documento
-    await updateDoc(propertyRef, {
+    //Obtenemos la data
+    const propertyData = propertyDoc.data();
+
+    //Verificamos el el usuario que trata de arrendar no sea el mismo
+    if (propertyData.lessee?.id === uid) {
+      return {
+        ok: false,
+        error: "No puedes arrendar tu propiedad",
+      };
+    }
+
+    //Actualizamos el documento del arrendamiento
+    await updateDoc(propertyDoc.ref, {
       status: "arrendada",
-      leaser: uid
+      leaser: uid,
+      TimeLease: serverTimestamp(),
     });
 
+    //Devolvemos una respuesta exitosa
     return {
       ok: true,
       error: null,
     };
   } catch (error) {
+    //Error para el desarrolaldor
     console.error("Error al arrendar propiedad:", error);
+
+    //Retornamos una respuesta para el usaurio
     return {
       ok: false,
-      error: "error al tratar de arrendar la propiedad",
+      error: "Error al tratar de arrendar la propiedad.",
     };
   }
 };
 
-export const cancelLease = async (codeHouse: string): Promise<void> => {
+//Función para guardar la propiedad
+export const saveProperty = async (propiedad: PropiedadInterface) => {
   try {
+    //Añadimos un documento a la colección de propiedades
+    await addDoc(collection(db, "properties"), propiedad);
+  } catch (error) {
+    //Error para el desarrollador
+    console.error("Error al tratar de guardar la propiedad:", error);
+  }
+};
+
+//Función para generar los códigos de las propiedades
+export const generateSequentialCodeByType = async (tipo: string) => {
+  //inicializamos una letra
+  let letra = "X";
+
+  //Verificamos que tipo de propiedad es y le asignamos la letra
+  if (tipo === "casa") letra = "C";
+  else if (tipo === "apartamento") letra = "A";
+  else if (tipo === "oficina") letra = "O";
+  else if (tipo === "finca") letra = "F";
+
+  //Guardamos la referencia de la colección de las propiedades
+  const propiedadesRef = collection(db, "properties");
+
+  //Guardamos la query para generar el código
+  const q = query(
+    propiedadesRef,
+    where("typeProperty", "==", tipo),
+    orderBy("code", "desc"),
+    limit(1)
+  );
+
+  //obnemos el documento con según la query
+  const snapshot = await getDocs(q);
+
+  //este es el número por el cual las propiedades siempre empiezan
+  let nuevoNumero = 100;
+
+  //Validamos de que no este vacio el documento
+  if (!snapshot.empty) {
+    const ultima = snapshot.docs[0].data();
+    const codigoAnterior = ultima.code;
+    const numero = parseInt(codigoAnterior.slice(1));
+    nuevoNumero = numero + 1;
+  }
+
+  //Retornamos la letra del tipo de propiedad y el número de la propiedad
+  return `${letra}${nuevoNumero}`;
+};
+
+//Función para obener las propiedades según el id de propietario
+export const getUserProperties = async (uid: string) => {
+  try {
+    //Guardamos la referencia de la colección
+    const propiedadesRef = collection(db, "properties");
+
+    //Guardamos la queary la cual tenga el mismo id que el propietario
+    const q = query(propiedadesRef, where("lessee.id", "==", uid));
+
+    //Obtenemos los documentos
+    const snapshot = await getDocs(q);
+
+    //retornamos las propiedades del propietario
+    return snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    })) as PropiedadInterface[];
+  } catch (error) {
+    //Error para el desarrollador
+    console.error("No se ha podido obtener les propiedades del usuario");
+    return [];
+  }
+};
+
+//Función para eliminar las propiedades
+export const deletePropertyByCode = async (code: string) => {
+  //guardamos la referencia de la colección
+  const propiedadesRef = collection(db, "properties");
+
+  //buscamos la query que tenga el mismo código de la propiedad
+  const q = query(propiedadesRef, where("code", "==", code));
+
+  //Obtenemos los documentos
+  const snapshot = await getDocs(q);
+
+  //Obtenemos los datos
+  const docId = snapshot.docs[0].id;
+
+  //Eliminamos el documento
+  await deleteDoc(doc(db, "properties", docId));
+};
+
+export const updatePropertyByCode = async (
+  code: string,
+  updatedData: Partial<PropiedadInterface>
+) => {
+  const q = query(collection(db, "properties"), where("code", "==", code));
+  const snapshot = await getDocs(q);
+
+  if (snapshot.empty) {
+    throw new Error("No se encontró la propiedad con ese código.");
+  }
+
+  const docRef = snapshot.docs[0].ref;
+  await updateDoc(docRef, updatedData);
+};
+
+//Funciópn para cancelar un arrendamiento
+export const cancelLease = async (codeHouse: string) => {
+  try {
+    //Guardamos la query donde la colección sea igual al código de la propiedad
     const q = query(
       collection(db, "properties"),
       where("code", "==", codeHouse)
     );
 
+    //Obtenemos los documentos
     const querySnapshot = await getDocs(q);
 
+    //Validamos que la propiedad si exista
     if (querySnapshot.empty) {
       console.warn("No se encontró esta propiedad.");
       return;
     }
 
+    //Obtenemos la referencia del documento
     const docRef = querySnapshot.docs[0].ref;
 
+    //Actualizamos el arrendador y el status
     await updateDoc(docRef, {
-      Arrendador: "",
+      leaser: "",
+      TimeLease: null,
       status: "libre",
     });
 

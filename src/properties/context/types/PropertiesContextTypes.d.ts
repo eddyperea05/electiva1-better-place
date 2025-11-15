@@ -3,9 +3,9 @@ type Filter = {
   typeProperties?: string[];
   sortBy?: string;
   amountStuffs: {
-    habitaciones: number | string;
-    baños: number | string;
-    parqueaderos: number | string;
+    habitaciones?: number | string;
+    baños?: number | string;
+    parqueaderos?: number | string;
   };
   budgetRange?: {
     min?: number;

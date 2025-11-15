@@ -9,7 +9,7 @@ export interface comment {
 
 export interface CommentsInterface {
   comment: string;
-  publicationDate: Date;
+  publicationDate: string;
   userName: string;
   image: string;
   rawDate: Date;

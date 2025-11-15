@@ -1,10 +1,18 @@
+//import de tipos
+import type { Dispatch, SetStateAction } from "react";
+import type { PropiedadInterface } from "../types/propertyType";
+
 export const PaginationComponent = ({
   page,
   setPage,
   pageSize,
   filteredProperties,
+}: {
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+  pageSize: number,
+  filteredProperties: PropiedadInterface[]
 }) => {
-  
   //Variable para saber la cantidad de páginas  que hay
   const totalPages = Math.ceil(filteredProperties.length / pageSize);
 

@@ -141,7 +141,9 @@ export const loginWithGoogle = async () => {
     const userRef = doc(db, "users", user.uid);
     const userDoc = await getDoc(userRef);
 
-    const firstAndLastName = user.displayName?.split(" ");
+    const firstAndLastName = user.displayName
+      ? user.displayName.split(" ")
+      : ["", ""];
 
     // Si el usuario no existe aún, lo creamos
     if (!userDoc.exists()) {
@@ -163,7 +165,6 @@ export const loginWithGoogle = async () => {
       ok: true,
       userData,
     };
-    
   } catch (error: any) {
     return { ok: false, error: error.code };
   }

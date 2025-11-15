@@ -15,7 +15,7 @@ import { useDataPropertiesContext } from "../../hooks/useDataPropertiesContext";
 
 //import de tipos
 import type { filters } from "../../types/filtersTypes";
-import type {PropsFiltersWithInput } from "./types/PropsTypesFilters";
+import type { PropsFiltersWithInput } from "./types/PropsTypesFilters";
 
 export const FilterTypeProperty = ({
   handleChange,
